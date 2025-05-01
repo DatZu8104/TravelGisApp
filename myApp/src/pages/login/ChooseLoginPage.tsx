@@ -1,10 +1,7 @@
 import { useHistory } from 'react-router-dom';
-import {   IonPage,
-  IonContent,
-  IonButton,
-  } from '@ionic/react';
+import { IonPage, IonContent, IonButton, } from '@ionic/react';
 
-const ChooseLogin: React.FC = () => {
+const ChooseLoginPage: React.FC = () => {
   const history = useHistory();
   return (
     <IonPage>
@@ -29,7 +26,7 @@ const ChooseLogin: React.FC = () => {
         <IonButton
           expand="block"
           color="medium"
-          onClick={() => history.push('/home')}
+          onClick={() => history.push('/homepage')}
         >
           Quay về Home
         </IonButton>
@@ -46,4 +43,4 @@ const ChooseLogin: React.FC = () => {
   );
 };
 
-export default ChooseLogin;
+export default ChooseLoginPage;

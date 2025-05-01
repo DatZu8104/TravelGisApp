@@ -6,7 +6,7 @@ const HomeContent: React.FC = () => {
       <h1>Welcome!</h1>
       <IonButton>
         Thông tin tài khoản
-      </IonButton >
+      </IonButton>
       <IonButton>
         Lịch trình
       </IonButton>
@@ -14,7 +14,6 @@ const HomeContent: React.FC = () => {
         Xem bản đồ
       </IonButton>
     </IonContent>
-
   );
 };
 

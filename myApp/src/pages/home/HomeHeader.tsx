@@ -3,7 +3,6 @@ import {
   IonToolbar,
   IonTitle,
   IonButton,
-  IonButtons
 } from '@ionic/react';
 import { useHistory } from 'react-router';
 
@@ -13,10 +12,8 @@ const HomeHeader: React.FC = () => {
     <IonHeader>
       <IonToolbar>
         <IonTitle>Home đã đăng nhập</IonTitle>
-        <IonButton
-          
-          
-          onClick={() => history.push('/home')}
+        <IonButton         
+          onClick={() => history.push('/homepage')}
         >
           Đăng xuất
         </IonButton>

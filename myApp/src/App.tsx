@@ -2,9 +2,9 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
-import Home from './pages/home/Home';
+import HomePage from './pages/home/HomePage';
 import Login from './pages/login/Login';
-import ChooseLogin from './pages/login/ChooseLogin';
+import ChooseLoginPage from './pages/login/ChooseLoginPage';
 import HomeMain from './pages/home/HomeMain';
 import SignUp from './pages/signUp/SignUp';
 
@@ -27,13 +27,13 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/homepage" component={HomePage} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/chooseLogin" component={ChooseLogin} />
+        <Route exact path="/chooseloginpage" component={ChooseLoginPage} />
         <Route exact path="/homemain" component={HomeMain} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/homepage" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

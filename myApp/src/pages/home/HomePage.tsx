@@ -1,14 +1,7 @@
-import { IonPage, IonContent } from '@ionic/react';
-import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonButton,
-  IonButtons
-} from '@ionic/react';
+import { IonPage, IonContent, IonButton, IonButtons } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   const history = useHistory();
   return (
     <IonPage>
@@ -16,7 +9,7 @@ const Home: React.FC = () => {
           <IonButton
             onClick={() => {
               console.log('Bấm nút Đăng nhập'); 
-              history.push('/chooseLogin');
+              history.push('/chooseloginpage');
             }}
           >
             Đăng nhập
@@ -29,4 +22,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
