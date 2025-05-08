@@ -1,5 +1,3 @@
-import '../../css/Login.scss';
-
 import {
   IonPage, IonContent, IonHeader, IonToolbar, IonTitle,
   IonButton, IonInput, IonItem, IonLabel

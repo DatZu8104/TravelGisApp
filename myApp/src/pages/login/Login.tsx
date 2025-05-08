@@ -1,5 +1,3 @@
-import '../../css/Login.scss';
-
 import {
   IonPage,
   IonContent,

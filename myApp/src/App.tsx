@@ -23,15 +23,31 @@ import './theme/variables.css';
 
 setupIonicReact();
 
+const MYPATH = [
+  {path: "/homepage",        
+    Component: HomePage},
+  {path: "/login",           
+    Component: Login},
+  {path: "/chooseloginpage", 
+    Component: ChooseLoginPage},
+  {path: "/homemain",        
+    Component: HomeMain},
+  {path: "/signup",          
+    Component: SignUp},
+];
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/homepage" component={HomePage} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/chooseloginpage" component={ChooseLoginPage} />
-        <Route exact path="/homemain" component={HomeMain} />
-        <Route exact path="/signup" component={SignUp} />
+        {MYPATH.map(({ path, Component }) => (
+          <Route
+            key={path}
+            exact
+            path={path}
+            component={Component}   
+          />
+        ))}
         <Route exact path="/">
           <Redirect to="/homepage" />
         </Route>
