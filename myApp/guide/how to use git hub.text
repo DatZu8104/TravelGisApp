@@ -1,0 +1,3 @@
+git add .
+git commit -m "Ghi rõ mình đã làm gì"
+git push origin "tên nhánh của mình" (push lên gihub)
