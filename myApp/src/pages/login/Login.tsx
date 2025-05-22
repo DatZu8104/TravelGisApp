@@ -9,16 +9,26 @@ import {
   IonItem,
   IonLabel,
 } from "@ionic/react";
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { handleLogin } from "../../feature/auth/LoginFeature";
+import React, { useState } from "react";
+import Header from "../../components/globals/header";
+import "../../css/Login.css";
 
 const Login: React.FC = () => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!username || !password) {
+      setError("Vui lòng nhập đầy đủ thông tin.");
+      return;
+    }
+
     handleLogin({ username, password, history });
   };
 
@@ -27,59 +37,83 @@ const Login: React.FC = () => {
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Login</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+    <div>
+      <Header />
 
-      <IonContent className="ion-padding ion-text-center">
-        <h1>TRANG ĐĂNG NHẬP</h1>
+      <div className="login-wrapper">
+        <div className="login-box">
+          <h2>LOGIN</h2>
 
-        <IonItem className="user-name">
-          <IonLabel className="user-name-label" position="floating">
-            Tài khoản
-          </IonLabel>
-          <IonInput
-            className="user-name-input"
-            value={username}
-            onIonChange={(e) => setUsername(e.detail.value!)}
-            placeholder="Nhập tài khoản"
-          />
-        </IonItem>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username">Email/SĐT</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Ex: 03923434567 or NguyenVanA@gmail.com"
+            />
 
-        <IonItem>
-          <IonLabel className="user-password-label" position="floating">
-            Mật khẩu
-          </IonLabel>
-          <IonInput
-            className="user-password-input"
-            type="password"
-            value={password}
-            onIonChange={(e) => setPassword(e.detail.value!)}
-            placeholder="Nhập mật khẩu"
-          />
-        </IonItem>
+            <label htmlFor="password">Mật khẩu</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
 
-        <IonButton
-          expand="block"
-          className="ion-margin-top"
-          onClick={handleSubmit}
-        >
-          Đăng nhập
-        </IonButton>
+            {error && <p className="error-msg">{error}</p>}
 
-        <IonButton
-          expand="block"
-          fill="outline"
-          className="ion-margin-top"
-          onClick={handleBackHome}
-        >
-          Quay về Home
-        </IonButton>
-      </IonContent>
-    </IonPage>
+            <button type="submit" className="sign-in-btn">
+              SIGN IN
+            </button>
+          </form>
+
+          <div className="divider">OR</div>
+
+          <button className="google-btn">
+            <img className="img" src="src/img/ic_google.png" alt="Google" />
+            Sign in with Google
+          </button>
+
+          <button className="facebook-btn">
+            <img className="img" src="src/img/ic_face.png" alt="Facebook" />
+            Facebook
+          </button>
+
+          <div className="login-footer">
+            <p>
+              <span
+                className="signup-link"
+                onClick={() => history.push("/ForgotPassword")}
+                style={{
+                  cursor: "pointer",
+                  color: "#fbc400",
+                  textDecoration: "underline",
+                }}
+              >
+                Forgot Password
+              </span>
+            </p>
+            <p>
+              Don't have an account?{" "}
+              <span
+                className="signup-link"
+                onClick={() => history.push("/signup")}
+                style={{
+                  cursor: "pointer",
+                  color: "#fbc400",
+                  textDecoration: "underline",
+                }}
+              >
+                SIGN UP
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
