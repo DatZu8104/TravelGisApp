@@ -1,3 +1,6 @@
 git add .
 git commit -m "Ghi rõ mình đã làm gì"
-git push origin "tên nhánh của mình" (push lên gihub)
+git push origin tên-nhánh (push lên gihub)
+
+Trước khi code lúc nào cũng phải xem nhánh hiện tại đang code là gì: git branch
+đổi nhánh: git checkout "Tên nhánh"
