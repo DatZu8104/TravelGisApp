@@ -8,22 +8,22 @@ import {
   IonInput,
   IonItem,
   IonLabel,
-} from '@ionic/react';
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { handleLogin } from '../../feature/auth/LoginFeature';
+} from "@ionic/react";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { handleLogin } from "../../feature/auth/LoginFeature";
 
 const Login: React.FC = () => {
   const history = useHistory();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
     handleLogin({ username, password, history });
   };
 
   const handleBackHome = () => {
-    history.push('/homepage');
+    history.push("/homepage");
   };
 
   return (
@@ -38,7 +38,9 @@ const Login: React.FC = () => {
         <h1>TRANG ĐĂNG NHẬP</h1>
 
         <IonItem className="user-name">
-          <IonLabel className="user-name-label" position="floating">Tài khoản</IonLabel>
+          <IonLabel className="user-name-label" position="floating">
+            Tài khoản
+          </IonLabel>
           <IonInput
             className="user-name-input"
             value={username}
@@ -48,7 +50,9 @@ const Login: React.FC = () => {
         </IonItem>
 
         <IonItem>
-          <IonLabel className="user-password-label" position="floating">Mật khẩu</IonLabel>
+          <IonLabel className="user-password-label" position="floating">
+            Mật khẩu
+          </IonLabel>
           <IonInput
             className="user-password-input"
             type="password"
@@ -58,11 +62,20 @@ const Login: React.FC = () => {
           />
         </IonItem>
 
-        <IonButton expand="block" className="ion-margin-top" onClick={handleSubmit}>
+        <IonButton
+          expand="block"
+          className="ion-margin-top"
+          onClick={handleSubmit}
+        >
           Đăng nhập
         </IonButton>
 
-        <IonButton expand="block" fill="outline" className="ion-margin-top" onClick={handleBackHome}>
+        <IonButton
+          expand="block"
+          fill="outline"
+          className="ion-margin-top"
+          onClick={handleBackHome}
+        >
           Quay về Home
         </IonButton>
       </IonContent>
