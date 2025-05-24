@@ -1,39 +1,27 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  overflow-y: auto !important; /* Bắt buộc cho phép cuộn */
-  font-family: "Genos", sans-serif;
-  box-sizing: border-box;
-}
-
-/* Giữ nguyên box-sizing */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 .app {
   margin: 0 auto;
-  padding: 40px 20px;
-  max-width: 1220px;
-  color: #333;
   font-family: "Genos", sans-serif;
-  box-sizing: border-box;
+  color: #333;
+  padding: 100px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.Hotel {
+  font-family: "Genos", sans-serif;
+  color: #333;
 }
 
 /* Phần ảnh nền lớn */
 .hero-image {
   background-image: url("src/img/poster.png");
+  background-position: center;
   background-size: cover;
   height: 420px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px; /* Thêm khoảng cách thay vì trừ margin */
 }
 
 /* Thanh tìm kiếm chính trên ảnh */
@@ -47,20 +35,15 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   box-sizing: border-box;
-
-  /* Thay position absolute thành relative để không đè lên phần khác */
-  position: relative;
-  /* Loại bỏ bottom, left, transform */
-  /* position: absolute; */
-  /* bottom: -30px; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
-
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
   box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
   font-family: "Genos", sans-serif;
 }
 
-/* Các phần còn lại giữ nguyên */
+/* Input text và date */
 .search-bar input[type="text"],
 .search-bar input[type="date"],
 .search-bar select {
@@ -76,14 +59,17 @@ body {
 
 .search-bar input[type="date"] {
   flex: 1 1 140px;
+  font-family: "Genos", sans-serif;
 }
 
 .search-bar select {
   flex: 1;
   background-color: #f0f0f0;
   cursor: pointer;
+  font-family: "Genos", sans-serif;
 }
 
+/* Nút tìm kiếm */
 .btn-search {
   background-color: #ffb400;
   color: #fff;
@@ -93,6 +79,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: "Genos", sans-serif;
 }
 
 .btn-search:hover {
@@ -108,11 +95,18 @@ body {
   font-family: "Genos", sans-serif;
 }
 
+.breadcrumb a {
+  text-decoration: underline;
+  color: #0066cc;
+  cursor: pointer;
+}
+
 /* Content chính chứa sidebar và danh sách khách sạn */
 .content {
   display: flex;
   margin-top: 20px;
-  gap: 20px;
+  gap: 25px;
+  padding: 0 15px 40px 15px;
   box-sizing: border-box;
 }
 
@@ -128,6 +122,7 @@ body {
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+  height: fit-content;
 }
 
 /* Phần liên hệ */
@@ -144,6 +139,7 @@ body {
 
 .support-img {
   width: 150px;
+  height: 150px;
   object-fit: contain;
   border-radius: 50%;
 }
@@ -345,7 +341,6 @@ hr {
 .btn-book:hover {
   background-color: #ffa000;
 }
-
 .utility {
   border: 1px solid #ccc;
   padding: 16px;
