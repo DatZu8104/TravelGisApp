@@ -1,0 +1,45 @@
+.hero-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0 60px;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.3); /* Optional for contrast */
+  padding: 40px 20px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.hero-subtitle {
+  font-size: 36px;
+  font-family: 'Brush Script MT', cursive;
+  color: #f5a623;
+  margin-bottom: 40px;
+}
+
+.hero-circles {
+  margin-top: 20px;
+}
+
+.circle-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-img img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #ffd54f;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

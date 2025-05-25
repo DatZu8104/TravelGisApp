@@ -1,0 +1,88 @@
+/* Tổng thể header */
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Logo */
+.logo {
+  height: 32px;
+  width: auto;
+}
+
+/* Phần chứa các nút tài khoản */
+.account-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Nhóm nút Sign In / Sign Up */
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+/* Nút Sign In */
+.header-login-btn {
+  --background: #17416c;
+  --color: white;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  height: 32px;
+}
+
+/* Nút Sign Up */
+.register-btn {
+  --background: white;
+  --color: #17416c;
+  border: 1px solid #17416c;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  height: 32px;
+}
+
+/* Line ngăn cách */
+.line {
+  height: 24px;
+  width: 1px;
+}
+
+/* Icon thông báo & tài khoản */
+.vector,
+.img {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+/* Thanh menu dưới (IonSegment) */
+.menu-toolbar {
+  --background: white;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+}
+
+ion-segment {
+  max-width: 600px;
+  width: 100%;
+}
+
+ion-segment-button {
+  --indicator-color: #17416c;
+  --color-checked: #17416c;
+  --color: #123c6b;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: none;
+  padding: 8px 12px;
+}
