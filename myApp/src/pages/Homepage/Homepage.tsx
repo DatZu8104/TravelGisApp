@@ -15,14 +15,14 @@ const HomePage: React.FC = () => {
     <IonPage>
       <Header />
       <IonContent fullscreen>
-        <HeroHeader />
-        <HotSpots />
-        <CheckinGallery />
-        <VungTauSpecialties />
-        <TravelTips />
-      </IonContent>
-      <Footer />
-    </IonPage>
+    {/* <HeroHeader /> */}
+    {/* <HotSpots /> */}
+    {/* <CheckinGallery /> */}
+    {/* <VungTauSpecialties /> */}
+    {/* <TravelTips /> */}
+  </IonContent>
+  {/* <Footer /> */}
+</IonPage>
   );
 };
 

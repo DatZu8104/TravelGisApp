@@ -35,10 +35,10 @@ export const Header = () => {
 
         <div className="account-section">
           <div className="button-group">
-            <IonButton className="header-login-btn" onClick={() => history.push("/SignIn")}>
+            <IonButton className="header-login-btn" onClick={() => history.push("/login")}>
               Sign In
             </IonButton>
-            <IonButton className="register-btn" onClick={() => history.push("/SignUp")}>
+            <IonButton className="register-btn" onClick={() => history.push("/signup")}>
               Sign Up
             </IonButton>
           </div>
@@ -49,12 +49,17 @@ export const Header = () => {
       </IonToolbar>
 
       {/* Toolbar 2: Navigation links */}
+      {/* 
+        Tạm thời comment các menu chưa có route để tránh trắng trang
+        Khi thêm route, bỏ comment bên dưới
+      */}
+      {/* 
       <IonToolbar className="menu-toolbar">
         <IonSegment
           value={location.pathname}
           onIonChange={handleSegmentChange}
         >
-          <IonSegmentButton value="/">
+          <IonSegmentButton value="/homepage">
             <IonLabel>Trang chủ</IonLabel>
           </IonSegmentButton>
           <IonSegmentButton value="/Tour">
@@ -68,6 +73,7 @@ export const Header = () => {
           </IonSegmentButton>
         </IonSegment>
       </IonToolbar>
+      */}
     </IonHeader>
   );
 };
