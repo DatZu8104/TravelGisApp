@@ -2,7 +2,7 @@
   margin: 0 auto;
   font-family: "Genos", sans-serif;
   color: #333;
-  padding: 100px;
+  padding: 5vw;
   min-height: 100vh;
   overflow-y: auto;
 }
@@ -14,7 +14,7 @@
 
 /* Phần ảnh nền lớn */
 .hero-image {
-  background-image: url("src/img/poster.png");
+  background-image: url("src/img/Backgroud_hotel.jpg");
   background-position: center;
   background-size: cover;
   height: 420px;
@@ -112,17 +112,16 @@
 
 /* Sidebar bên trái */
 .sidebar {
-  width: 260px;
   display: flex;
   flex-direction: column;
   gap: 25px;
   flex: 0 0 30%;
-  max-width: 30%;
   background: #fff;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
   height: fit-content;
+  width: 100%;
 }
 
 /* Phần liên hệ */
@@ -201,7 +200,7 @@
 /* See more */
 .see-more {
   font-size: 12px;
-  color: #0078d7;
+  color: #15487b;
   cursor: pointer;
   margin-top: 6px;
   user-select: none;
@@ -245,7 +244,7 @@ hr {
 
 /* Danh sách khách sạn */
 .hotel-list {
-  flex: 1;
+  flex: 0 0 70%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -400,4 +399,68 @@ hr {
 .load-more-btn:hover {
   background-color: #134958;
   color: white;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hotel-price {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .hotel-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hotel-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    padding: 20px;
+    bottom: -60px;
+  }
+
+  .search-bar input,
+  .search-bar select,
+  .btn-search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .breadcrumb {
+    font-size: 16px;
+  }
+
+  .guide-card,
+  .utility {
+    padding: 12px;
+  }
+
+  .guide-title {
+    font-size: 18px;
+  }
+
+  .load-more-btn {
+    font-size: 18px;
+    padding: 10px 30px;
+  }
+}
+hr {
+  display: none;
 }

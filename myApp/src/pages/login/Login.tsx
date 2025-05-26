@@ -54,13 +54,12 @@ const Login: React.FC = () => {
               placeholder="Ex: 03923434567 or NguyenVanA@gmail.com"
             />
 
-            <label htmlFor="password">Mật khẩu</label>
+            <label htmlFor="password">Passwork</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
             />
 
             {error && <p className="error-msg">{error}</p>}
