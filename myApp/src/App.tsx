@@ -13,7 +13,9 @@ import ChooseLoginPage from "./pages/login/ChooseLoginPage";
 import HomeMain from "./pages/home/HomeMain";
 import SignUp from "./pages/signUp/SignUp";
 import Hotel from "./pages/hotel/index";
+import PrivateRoute from "../src/pages/routes/PrivateRoute";
 
+// Ionic CSS
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
 import "@ionic/react/css/structure.css";
@@ -33,8 +35,8 @@ const MYPATH = [
   { path: "/homepage", Component: HomePage },
   { path: "/login", Component: Login },
   { path: "/chooseloginpage", Component: ChooseLoginPage },
-  { path: "/homemain", Component: HomeMain },
   { path: "/signup", Component: SignUp },
+  { path: "/homemain", Component: HomeMain },
   { path: "/hotel", Component: Hotel },
 ];
 
@@ -42,14 +44,23 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <IonContent>
-          {MYPATH.map(({ path, Component }) => (
+const App: React.FC = () => (
+  <IonApp>
+    <IonReactRouter>
+      <IonRouterOutlet>
+        {MYPATH.map(({ path, Component }) => {
+          const isPrivate = path === "/homemain" || path.startsWith("/admin");
+
+          return isPrivate ? (
+            <PrivateRoute key={path} exact path={path} component={Component} />
+          ) : (
             <Route key={path} exact path={path} component={Component} />
-          ))}
-          <Route exact path="/">
-            <Redirect to="/homepage" />
-          </Route>
-        </IonContent>
+          );
+        })}
+
+        <Route exact path="/">
+          <Redirect to="/homepage" />
+        </Route>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

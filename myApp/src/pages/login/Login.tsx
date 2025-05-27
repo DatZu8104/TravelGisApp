@@ -1,118 +1,152 @@
 import {
   IonPage,
-  IonContent,
   IonHeader,
   IonToolbar,
   IonTitle,
-  IonButton,
+  IonContent,
   IonInput,
+  IonButton,
   IonItem,
   IonLabel,
+  IonToast,
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
-import { handleLogin } from "../../feature/auth/LoginFeature";
-import React, { useState } from "react";
-import Header from "../../components/globals/header";
+import { useState } from "react";
+import { saveToken } from "../../utils/auth";
 import "../../css/Login.css";
 
 const Login: React.FC = () => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const handleLogin = async () => {
     if (!username || !password) {
       setError("Vui lòng nhập đầy đủ thông tin.");
       return;
     }
 
-    handleLogin({ username, password, history });
-  };
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
 
-  const handleBackHome = () => {
-    history.push("/homepage");
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || "Đăng nhập thất bại");
+        return;
+      }
+
+      saveToken(data.token);
+      history.push("/homemain");
+    } catch (err) {
+      console.error(err);
+      setError("Lỗi kết nối máy chủ");
+    }
   };
 
   return (
-    <div>
-      <Header />
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Đăng nhập</IonTitle>
+        </IonToolbar>
+      </IonHeader>
 
-      <div className="login-wrapper">
-        <div className="login-box">
-          <h2>LOGIN</h2>
+      <IonContent className="ion-padding">
+        <div className="login-wrapper">
+          <div className="login-box">
+            <h2>LOGIN</h2>
 
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Email/SĐT</label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Ex: 03923434567 or NguyenVanA@gmail.com"
-            />
+            <IonItem>
+              <IonLabel position="stacked">Email/SĐT</IonLabel>
+              <IonInput
+                value={username}
+                onIonChange={(e) => setUsername(e.detail.value!)}
+                placeholder="Ex: 03923434567 or NguyenVanA@gmail.com"
+              />
+            </IonItem>
 
-            <label htmlFor="password">Passwork</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <IonItem>
+              <IonLabel position="stacked">Mật khẩu</IonLabel>
+              <IonInput
+                type="password"
+                value={password}
+                onIonChange={(e) => setPassword(e.detail.value!)}
+                placeholder="Nhập mật khẩu"
+              />
+            </IonItem>
 
-            {error && <p className="error-msg">{error}</p>}
+            <IonButton expand="block" onClick={handleLogin}>
+              Đăng nhập
+            </IonButton>
 
-            <button type="submit" className="sign-in-btn">
-              SIGN IN
-            </button>
-          </form>
+            <div className="divider">HOẶC</div>
 
-          <div className="divider">OR</div>
+            <IonButton expand="block" color="light">
+              <img
+                className="img"
+                src="src/img/ic_google.png"
+                alt="Google"
+                style={{ height: "20px", marginRight: "10px" }}
+              />
+              Google
+            </IonButton>
 
-          <button className="google-btn">
-            <img className="img" src="src/img/ic_google.png" alt="Google" />
-            Sign in with Google
-          </button>
+            <IonButton expand="block" color="primary">
+              <img
+                className="img"
+                src="src/img/ic_face.png"
+                alt="Facebook"
+                style={{ height: "20px", marginRight: "10px" }}
+              />
+              Facebook
+            </IonButton>
 
-          <button className="facebook-btn">
-            <img className="img" src="src/img/ic_face.png" alt="Facebook" />
-            Facebook
-          </button>
-
-          <div className="login-footer">
-            <p>
-              <span
-                className="signup-link"
-                onClick={() => history.push("/ForgotPassword")}
-                style={{
-                  cursor: "pointer",
-                  color: "#fbc400",
-                  textDecoration: "underline",
-                }}
-              >
-                Forgot Password
-              </span>
-            </p>
-            <p>
-              Don't have an account?{" "}
-              <span
-                className="signup-link"
-                onClick={() => history.push("/signup")}
-                style={{
-                  cursor: "pointer",
-                  color: "#fbc400",
-                  textDecoration: "underline",
-                }}
-              >
-                SIGN UP
-              </span>
-            </p>
+            <div className="login-footer" style={{ marginTop: "16px" }}>
+              <p>
+                <span
+                  className="signup-link"
+                  onClick={() => history.push("/ForgotPassword")}
+                  style={{
+                    cursor: "pointer",
+                    color: "#fbc400",
+                    textDecoration: "underline",
+                  }}
+                >
+                  Quên mật khẩu?
+                </span>
+              </p>
+              <p>
+                Chưa có tài khoản?{" "}
+                <span
+                  className="signup-link"
+                  onClick={() => history.push("/signup")}
+                  style={{
+                    cursor: "pointer",
+                    color: "#fbc400",
+                    textDecoration: "underline",
+                  }}
+                >
+                  Đăng ký
+                </span>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+
+        <IonToast
+          isOpen={!!error}
+          message={error || ""}
+          duration={2000}
+          onDidDismiss={() => setError(null)}
+        />
+      </IonContent>
+    </IonPage>
   );
 };
 

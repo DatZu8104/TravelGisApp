@@ -1,0 +1,21 @@
+git add .
+git commit -m "Ghi rõ mình đã làm gì"
+git push origin tên-nhánh (push lên gihub)
+
+Trước khi code lúc nào cũng phải xem nhánh hiện tại đang code là gì: git branch
+đổi nhánh: git checkout "Tên nhánh"
+
+Không cần đọc:Đã hoàn thành code trên nhánh phụ (ví dụ feature/login)
+Và muốn cập nhật main với toàn bộ code đó
+# 1. Chuyển sang nhánh main
+git checkout main
+
+# 2. Kéo về dữ liệu mới nhất từ remote (đảm bảo main là mới nhất)
+git pull origin main
+
+# 3. Merge nhánh phụ vào main
+git merge feature/login
+
+# 4. Push thay đổi lên remote
+git push origin main
+
