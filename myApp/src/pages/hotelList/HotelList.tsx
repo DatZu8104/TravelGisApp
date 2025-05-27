@@ -3,6 +3,7 @@ import "../../css/HotelList.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import hotelImage from "../../img/hotel.png";
 
 // 👇 Cấu hình lại icon Leaflet an toàn với TypeScript
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
@@ -21,7 +22,7 @@ const hotels = [
         name: "Khách Sạn 1",
         rating: "9.2/10",
         price: "2.999.000 VND",
-        image: "/images/hotel.jpg",
+        image: hotelImage,
         lat: 10.3475,
         lng: 107.0843,
     },
@@ -29,7 +30,7 @@ const hotels = [
         name: "Khách Sạn 2",
         rating: "8.8/10",
         price: "2.499.000 VND",
-        image: "/images/hotel.jpg",
+        image: hotelImage,
         lat: 10.3505,
         lng: 107.0821,
     },
@@ -37,7 +38,7 @@ const hotels = [
         name: "Khách Sạn 3",
         rating: "9.5/10",
         price: "3.200.000 VND",
-        image: "/images/hotel.jpg",
+        image: hotelImage,
         lat: 10.3450,
         lng: 107.0810,
     },
@@ -45,7 +46,7 @@ const hotels = [
         name: "Khách Sạn 4",
         rating: "8.0/10",
         price: "1.999.000 VND",
-        image: "/images/hotel.jpg",
+        image: hotelImage,
         lat: 10.3430,
         lng: 107.0860,
     },
@@ -53,7 +54,7 @@ const hotels = [
         name: "Khách Sạn 5",
         rating: "9.0/10",
         price: "2.800.000 VND",
-        image: "/images/hotel.jpg",
+        image: hotelImage,
         lat: 10.3490,
         lng: 107.0880,
     },
