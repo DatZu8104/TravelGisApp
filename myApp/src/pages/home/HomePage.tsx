@@ -18,6 +18,7 @@ const HomePage: React.FC = () => {
       <IonContent className="ion-padding">
         Chào mừng bạn đến Home "Chưa đăng nhập"
       </IonContent>
+      
     </IonPage>
   );
 };
