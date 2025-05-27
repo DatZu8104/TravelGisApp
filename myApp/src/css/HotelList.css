@@ -1,0 +1,93 @@
+.hotel-page {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.hotel-content {
+    display: flex;
+    gap: 20px;
+}
+
+.hotel-list {
+    flex: 1;
+}
+
+.hotel-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.hotel-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.hotel-info {
+    flex: 1;
+}
+
+.hotel-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #000;
+}
+
+.hotel-info p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.hotel-price {
+    font-weight: bold;
+    color: #000;
+    white-space: nowrap;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background-color: #004080;
+}
+
+.next-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #004080;
+    background-color: #fff;
+    color: #004080;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hotel-map {
+    width: 380px;
+    flex-shrink: 0;
+}
+
+.map-img {
+    width: 100%;
+    border-radius: 10px;
+}
