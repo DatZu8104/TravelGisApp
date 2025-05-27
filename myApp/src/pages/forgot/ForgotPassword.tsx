@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
-import "./css/Login.css";
-import Header from "./header"; // Dùng lại file CSS từ login
+import "../../css/Login.css";
+import { Header } from "./ForgotPasswordHeader";
 
 const ForgotPassword = () => {
     const [email, setEmail] = React.useState("");
