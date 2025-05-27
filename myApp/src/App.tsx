@@ -8,46 +8,36 @@ import ChooseLoginPage from './pages/login/ChooseLoginPage';
 import HomeMain from './pages/home/HomeMain';
 import SignUp from './pages/signUp/SignUp';
 
+import PrivateRoute from '../src/pages/routes/PrivateRoute'; // 👈 import route bảo vệ
+
 import '@ionic/react/css/core.css';
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
-import '@ionic/react/css/palettes/dark.system.css';
 import './theme/variables.css';
 
 setupIonicReact();
 
 const MYPATH = [
-  {path: "/homepage",        
-    Component: HomePage},
-  {path: "/login",           
-    Component: Login},
-  {path: "/chooseloginpage", 
-    Component: ChooseLoginPage},
-  {path: "/homemain",        
-    Component: HomeMain},
-  {path: "/signup",          
-    Component: SignUp},
+  { path: '/homepage', Component: HomePage },
+  { path: '/login', Component: Login },
+  { path: '/chooseloginpage', Component: ChooseLoginPage },
+  { path: '/signup', Component: SignUp },
+  { path: '/homemain', Component: HomeMain },
+  
 ];
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        {MYPATH.map(({ path, Component }) => (
-          <Route
-            key={path}
-            exact
-            path={path}
-            component={Component}   
-          />
-        ))}
+        {MYPATH.map(({ path, Component }) => {
+          const isPrivate = path === '/homemain' || path.startsWith('/admin');
+
+          return isPrivate ? (
+            <PrivateRoute key={path} exact path={path} component={Component} />
+          ) : (
+            <Route key={path} exact path={path} component={Component} />
+          );
+        })}
+
         <Route exact path="/">
           <Redirect to="/homepage" />
         </Route>
