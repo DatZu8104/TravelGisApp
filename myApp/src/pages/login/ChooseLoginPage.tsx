@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { IonPage, IonContent, IonButton, } from '@ionic/react';
+import { saveToken } from "../../utils/auth";
 
 const ChooseLoginPage: React.FC = () => {
   const history = useHistory();
@@ -39,8 +40,11 @@ const ChooseLoginPage: React.FC = () => {
           Đăng ký tài khoản mới
         </IonButton>
       </IonContent>
+      
     </IonPage>
+
   );
 };
+
 
 export default ChooseLoginPage;

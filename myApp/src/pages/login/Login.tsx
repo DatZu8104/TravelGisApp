@@ -1,56 +1,68 @@
 import {
   IonPage,
-  IonContent,
   IonHeader,
   IonToolbar,
   IonTitle,
-  IonButton,
+  IonContent,
   IonInput,
+  IonButton,
   IonItem,
   IonLabel,
+  IonToast,
 } from '@ionic/react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { handleLogin } from '../../feature/auth/LoginFeature';
+import { saveToken } from "../../utils/auth"; 
 
 const Login: React.FC = () => {
   const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = () => {
-    handleLogin({ username, password, history });
-  };
+  const handleLogin = async () => {
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
 
-  const handleBackHome = () => {
-    history.push('/homepage');
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || 'Đăng nhập thất bại');
+        return;
+      }
+
+      saveToken(data.token); // ✅ Lưu token sau khi đăng nhập
+      history.push('/homemain'); // ✅ Điều hướng tới trang được bảo vệ
+    } catch (err) {
+      console.error(err);
+      setError('Lỗi kết nối máy chủ');
+    }
   };
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Login</IonTitle>
+          <IonTitle>Đăng nhập</IonTitle>
         </IonToolbar>
       </IonHeader>
-
-      <IonContent className="ion-padding ion-text-center">
-        <h1>TRANG ĐĂNG NHẬP</h1>
-
-        <IonItem className="user-name">
-          <IonLabel className="user-name-label" position="floating">Tài khoản</IonLabel>
+      <IonContent className="ion-padding">
+        <IonItem>
+          <IonLabel position="stacked">Tên đăng nhập</IonLabel>
           <IonInput
-            className="user-name-input"
             value={username}
             onIonChange={(e) => setUsername(e.detail.value!)}
-            placeholder="Nhập tài khoản"
+            placeholder="Nhập tên đăng nhập"
           />
         </IonItem>
 
         <IonItem>
-          <IonLabel className="user-password-label" position="floating">Mật khẩu</IonLabel>
+          <IonLabel position="stacked">Mật khẩu</IonLabel>
           <IonInput
-            className="user-password-input"
             type="password"
             value={password}
             onIonChange={(e) => setPassword(e.detail.value!)}
@@ -58,13 +70,16 @@ const Login: React.FC = () => {
           />
         </IonItem>
 
-        <IonButton expand="block" className="ion-margin-top" onClick={handleSubmit}>
+        <IonButton expand="block" onClick={handleLogin}>
           Đăng nhập
         </IonButton>
 
-        <IonButton expand="block" fill="outline" className="ion-margin-top" onClick={handleBackHome}>
-          Quay về Home
-        </IonButton>
+        <IonToast
+          isOpen={!!error}
+          message={error || ''}
+          duration={2000}
+          onDidDismiss={() => setError(null)}
+        />
       </IonContent>
     </IonPage>
   );
