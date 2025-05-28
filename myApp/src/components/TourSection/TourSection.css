@@ -1,6 +1,6 @@
 /* Vùng bao quanh cả section */
 .tour-section-container {
-  padding: 200px 200px;
+  padding: 200px 100px;
   background-color: #ffffff !important;
   --background: #ffffff;
 }
@@ -31,8 +31,8 @@
 /* Vùng nền cam bao quanh 4 ảnh */
 .tour-grid-wrapper {
   background: #ffe8b3;
-  padding: 40px 20px;
-  border-radius: 12px;
+  padding: 50px 10px;
+  border-radius: 8px;
 }
 
 /* Bố cục lưới */
@@ -145,17 +145,17 @@
 }
 .label-wrapper-1 {
   transform: translateY(-5px);
-  transform: translateX(-28px); /* Di chuyển lên */
+  transform: translateX(-50px); /* Di chuyển lên */
 }
 
 .label-wrapper-2 {
-  transform: translateX(-28px); /* Di chuyển sang phải */
+  transform: translateX(-51px); /* Di chuyển sang phải */
 }
 
 .label-wrapper-3 {
-  transform: translateX(-30px); /* Di chuyển trái và xuống */
+  transform: translateX(-50px); /* Di chuyển trái và xuống */
 }
 
 .label-wrapper-4 {
-  transform: translatex(-31px); /* Di chuyển xuống */
+  transform: translatex(-50px); /* Di chuyển xuống */
 }
