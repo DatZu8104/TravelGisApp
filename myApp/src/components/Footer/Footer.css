@@ -1,14 +1,35 @@
+/* FORCIBLY OVERRIDE BACKGROUND COLOR IN FOOTER */
+ion-footer,
+ion-footer ion-toolbar,
+ion-footer ion-toolbar::part(background) {
+  background-color: #114B55 !important;
+  --background: #114B55 !important;
+  color: white !important;
+}
+
+/* CẤU HÌNH GỐC */
 ion-footer {
-  background-color: #0d4a56;
-  color: white;
   font-family: 'Arial', sans-serif;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 -1px 4px rgba(5, 78, 90, 0.05);
 }
 
 ion-toolbar {
   --padding-top: 0px;
   --padding-bottom: 0px;
   --min-height: auto;
-  background-color: transparent;
+  background-color: transparent !important;
+}
+
+/* Các phần còn lại giữ nguyên */
+.footer-col {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .footer-brand h3 {
@@ -66,7 +87,7 @@ ion-toolbar {
 
 .social-icons {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
 }
 

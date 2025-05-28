@@ -1,34 +1,27 @@
-import { IonText, IonGrid, IonRow, IonCol } from '@ionic/react';
-import './HotPlaces.css';
+import React from 'react';
+import { IonImg } from '@ionic/react';
+import './HotSpots.css';
 
-const places = [
-  '/assets/hot1.jpg',
-  '/assets/hot2.jpg',
-  '/assets/hot3.jpg',
-  '/assets/hot4.jpg',
-  '/assets/hot5.jpg',
-];
+import chuTitle from './assets/chu-dia-diem-hot-nhat.png';
+import hinh1 from './assets/hinh-1.png';
+import hinh2 from './assets/hinh-2.png';
+import hinh3 from './assets/hinh-3.png';
+import hinh4 from './assets/hinh-4.png';
+import hinh5 from './assets/hinh-5.png';
 
-const HotPlaces = () => {
+const HotSpots: React.FC = () => {
   return (
-    <div className="hot-places-section">
-      <IonText className="hot-places-title">
-        Địa Điểm Hot Nhất Trong Mùa Hè Này!
-      </IonText>
-
-      <IonGrid className="hot-places-grid">
-        <IonRow className="hot-places-row" justify-content="center">
-          {places.map((src, index) => (
-            <IonCol size="6" size-md="2" key={index} className="hot-place-col">
-              <div className="hot-place-img-wrapper">
-                <img src={src} alt={`Hot Place ${index + 1}`} />
-              </div>
-            </IonCol>
-          ))}
-        </IonRow>
-      </IonGrid>
+    <div className="hotspots-container">
+      <IonImg src={chuTitle} alt="Tiêu đề" className="hotspots-title" />
+      <div className="hotspots-gallery">
+        <IonImg src={hinh1} alt="Hình 1" className="hotspots-image hinh-1" />
+        <IonImg src={hinh2} alt="Hình 2" className="hotspots-image hinh-2" />
+        <IonImg src={hinh3} alt="Hình 3" className="hotspots-image hinh-3" />
+        <IonImg src={hinh4} alt="Hình 4" className="hotspots-image hinh-4" />
+        <IonImg src={hinh5} alt="Hình 5" className="hotspots-image hinh-5" />
+      </div>
     </div>
   );
 };
 
-export default HotPlaces;
+export default HotSpots;

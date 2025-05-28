@@ -1,22 +1,29 @@
-import { IonPage, IonContent, IonButton, IonButtons } from '@ionic/react';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { IonPage, IonContent } from "@ionic/react";
+
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import HeroSection from "../../components/HeroSection/HeroSection";
+import TourSection from "../../components/TourSection/TourSection"; // ✅ Đã thêm
+import CheckinGallery from "../../components/CheckinGallery/CheckinGallery";
+import VungTauSpecialties from "../../components/VungTauSpecialties/VungTauSpecialties";
+import HotSpots from "../../components/HotSpots/HotSpots";
+import TravelTips from "../../components/TravelTips/TravelTips";
 
 const HomePage: React.FC = () => {
-  const history = useHistory();
+  console.log(">>> Rendering HomePage with full ordered layout");
+
   return (
     <IonPage>
-      <IonButtons slot="end">
-          <IonButton
-            onClick={() => {
-              console.log('Bấm nút Đăng nhập'); 
-              history.push('/chooseloginpage');
-            }}
-          >
-            Đăng nhập
-          </IonButton>
-        </IonButtons>
-      <IonContent className="ion-padding">
-        Chào mừng bạn đến Home "Chưa đăng nhập"
+      <IonContent fullscreen scrollEvents={true}>
+        <Header />
+        <HeroSection />
+        <TourSection />            {}
+        <CheckinGallery />
+        <VungTauSpecialties />
+        <HotSpots />
+        <TravelTips />
+        <Footer />
       </IonContent>
     </IonPage>
   );

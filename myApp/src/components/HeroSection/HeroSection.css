@@ -1,45 +1,132 @@
 .hero-section {
-  position: relative;
   background-size: cover;
   background-position: center;
-  padding: 80px 0 60px;
-  text-align: center;
-  color: white;
+  padding: 60px 20px 180px;
+  position: relative;
+  text-align: left;
+  min-height: 100vh;
+  overflow: visible;
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.3); /* Optional for contrast */
-  padding: 40px 20px;
+  background: transparent;
+  padding-top: 50px;
+  padding-left: 40px;
+  position: relative;
 }
 
-.hero-title {
-  font-size: 48px;
-  font-weight: bold;
-  color: #fff;
+/* Tiêu đề */
+.hero-title-img {
+  width: 650px;
+  max-width: 100%;
+  display: block;
+  margin-bottom: -20px;
+  z-index: 1;
+  position: relative;
 }
 
-.hero-subtitle {
-  font-size: 36px;
-  font-family: 'Brush Script MT', cursive;
-  color: #f5a623;
-  margin-bottom: 40px;
+.hero-subtitle-img {
+  width: 600px;
+  max-width: 90%;
+  display: block;
+  margin-left: 85px;
+  position: relative;
+  z-index: 2;
 }
 
+/* Góc sóng */
+.corner-waves {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.wave {
+  position: absolute;
+  width: auto;
+  height: auto;
+}
+
+.vang-trai {
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  transform: translate(-40px, 400px);
+}
+
+.xanh-trai {
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  transform: translate(-20px, 442px);
+}
+
+.vang-phai {
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+  transform: translate(40px, 400px);
+}
+
+.xanh-phai {
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  transform: translate(20px, 442px);
+}
+
+/* Các hình tròn */
 .hero-circles {
-  margin-top: 20px;
-}
-
-.circle-img {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 200px;
+  position: absolute;
+  bottom: -500px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
 }
 
-.circle-img img {
-  width: 150px;
-  height: 150px;
+.circle-wrapper {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.circle-wrapper ion-img {
   border-radius: 50%;
   object-fit: cover;
-  border: 6px solid #ffd54f;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background: white;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 20px 20px -10px rgba(198, 185, 12, 0.788);
+ 
+}
+
+/* Kích thước & vị trí từng hình */
+.circle-1 ion-img {
+  width: 310px;
+  height: 310px;
+}
+.circle-1 {
+  transform: translate(-250px, 40px);
+}
+
+.circle-2 ion-img {
+  width: 360px;
+  height: 360px;
+}
+.circle-2 {
+  transform: translate(-20px, 90px);
+}
+
+.circle-3 ion-img {
+  width: 310px;
+  height: 310px;
+}
+.circle-3 {
+  transform: translate(180px, 40px);
 }

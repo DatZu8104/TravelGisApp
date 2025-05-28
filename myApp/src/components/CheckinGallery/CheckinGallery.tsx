@@ -1,56 +1,58 @@
-import { IonGrid, IonRow, IonCol, IonText } from '@ionic/react';
+import { IonContent } from '@ionic/react';
 import './CheckinGallery.css';
 
-import ducMeBaiDau from './assets/Đức Mẹ Bãi Dâu - Vũng Tàu.png';
-import deoNuocNgot from './assets/Đeo Nước Ngọt Vũng Tàu.png';
-import benThuyenMarina from './assets/Bến thuyền MARINA.png';
-import suoiDa from './assets/Suối Đá Vũng Tàu.png';
-import doiConHeo from './assets/Đồi con Heo.png';
-import hoMatTroi from './assets/HỒ MẶT TRỜI PHÚ MỸ.png';
+import checkinVungTauImg from './assets/chu-checkin-vung-tau.png';
+import mangCaBienImg from './assets/chu-mang-ca-bien-va-troi.png';
 
-const CheckinGallery = () => {
+import ducMeBaiDauImg from './assets/chu-hinh-1.png';
+import deoNuocNgotImg from './assets/chu-hinh-2.png';
+import benThuyenMarinaImg from './assets/chu-hinh-3.png';
+import suoiDaVungTauImg from './assets/chu-hinh-4.png';
+import doiConHeoImg from './assets/chu-hinh-5.png';
+
+import ducMeBaiDauPhoto from './assets/hinh-1.png';
+import deoNuocNgotPhoto from './assets/hinh-2.png';
+import benThuyenMarinaPhoto from './assets/hinh-3.png';
+import suoiDaVungTauPhoto from './assets/hinh-4.png';
+import doiConHeoPhoto from './assets/hinh-5.png';
+import hoMatTroiPhoto from './assets/hinh-6.png';
+
+const tourData = [
+  { image: ducMeBaiDauPhoto, label: ducMeBaiDauImg, className: 'item-0' },
+  { image: deoNuocNgotPhoto, label: deoNuocNgotImg, className: 'item-1' },
+  { image: hoMatTroiPhoto, label: null, className: 'tall item-2' }, // Hình 6
+  { image: benThuyenMarinaPhoto, label: benThuyenMarinaImg, className: 'item-3' },
+  { image: suoiDaVungTauPhoto, label: suoiDaVungTauImg, className: 'item-4' },
+  { image: doiConHeoPhoto, label: doiConHeoImg, className: 'wide item-5' },
+];
+
+const CheckinGallery: React.FC = () => {
   return (
-    <div className="checkin-section">
-      <IonText className="checkin-title">Check-in Vũng Tàu</IonText>
-      <IonText className="checkin-subtitle">Mang cả biển và trời vào câu chuyện</IonText>
+    <IonContent className="checkin-gallery">
+      <div className="checkin-header">
+        <img
+          src={checkinVungTauImg}
+          alt="Check-in Vũng Tàu"
+          className="checkin-title"
+        />
+        <img
+          src={mangCaBienImg}
+          alt="Mang cả biển và trời"
+          className="checkin-subtitle"
+        />
+      </div>
 
-      <IonGrid className="checkin-grid">
-        <IonRow>
-          <IonCol size="6" sizeMd="3">
-            <div className="checkin-card" style={{ backgroundImage: `url(${ducMeBaiDau})` }}>
-              <IonText className="checkin-label">ĐỨC MẸ BÃI DÂU - VŨNG TÀU</IonText>
-            </div>
-          </IonCol>
-          <IonCol size="6" sizeMd="3">
-            <div className="checkin-card" style={{ backgroundImage: `url(${deoNuocNgot})` }}>
-              <IonText className="checkin-label">ĐÈO NƯỚC NGỌT VŨNG TÀU</IonText>
-            </div>
-          </IonCol>
-          <IonCol size="6" sizeMd="3">
-            <div className="checkin-card" style={{ backgroundImage: `url(${benThuyenMarina})` }}>
-              <IonText className="checkin-label">BẾN THUYỀN MARINA</IonText>
-            </div>
-          </IonCol>
-          <IonCol size="6" sizeMd="3">
-            <div className="checkin-card" style={{ backgroundImage: `url(${suoiDa})` }}>
-              <IonText className="checkin-label">SUỐI ĐÁ VŨNG TÀU</IonText>
-            </div>
-          </IonCol>
-        </IonRow>
-        <IonRow>
-          <IonCol size="12" sizeMd="6">
-            <div className="checkin-card wide" style={{ backgroundImage: `url(${doiConHeo})` }}>
-              <IonText className="checkin-label center">ĐỒI CON HEO</IonText>
-            </div>
-          </IonCol>
-          <IonCol size="12" sizeMd="6">
-            <div className="checkin-card tall" style={{ backgroundImage: `url(${hoMatTroi})` }}>
-              <IonText className="checkin-label bottom">HỒ MẬT TRỜI PHÚ MỸ</IonText>
-            </div>
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-    </div>
+      <div className="grid-layout">
+        {tourData.map((tour, index) => (
+          <div className={`tour-item ${tour.className}`} key={index}>
+            <img src={tour.image} alt={`Tour ${index}`} className="tour-image" />
+            {tour.label && (
+              <img src={tour.label} alt={`Label ${index}`} className="tour-label" />
+            )}
+          </div>
+        ))}
+      </div>
+    </IonContent>
   );
 };
 

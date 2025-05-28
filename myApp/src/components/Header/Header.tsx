@@ -1,79 +1,74 @@
-// Header.tsx
+import React, { useEffect, useState } from "react";
 import {
   IonHeader,
   IonToolbar,
-  IonButton,
   IonImg,
-  IonSegment,
-  IonSegmentButton,
-  IonLabel,
+  IonButton
 } from "@ionic/react";
-import { useHistory, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
-import logo from './assets/logo-group.svg';
-import line from './assets/line-30.svg';
-import notify from './assets/notify.png';
-import account from './assets/account.png';
+import logo from "./assets/logo-group.svg";
+import notifyIcon from "./assets/notify.png";
+import accountIcon from "./assets/account.png";
 
-export const Header = () => {
-  const history = useHistory();
-  const location = useLocation();
+const Header: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  let lastScroll = 0;
 
-  const handleSegmentChange = (e: CustomEvent) => {
-    const value = (e.detail as any).value;
-    if (value !== location.pathname) {
-      history.push(value);
-    }
-  };
+  useEffect(() => {
+    const ionContent = document.querySelector("ion-content");
+
+    const onScroll = (e: any) => {
+      const scrollTop = e.detail.scrollTop;
+
+      if (scrollTop > lastScroll && scrollTop > 80) {
+        setIsVisible(false); 
+      } else {
+        setIsVisible(true); 
+      }
+      lastScroll = scrollTop;
+    };
+
+    ionContent?.addEventListener("ionScroll", onScroll);
+    return () => ionContent?.removeEventListener("ionScroll", onScroll);
+  }, []);
 
   return (
-    <IonHeader>
-      {/* Toolbar 1: Logo & Sign In/Up */}
-      <IonToolbar className="header-toolbar">
-        <IonImg src={logo} alt="Logo" className="logo" />
+    <IonHeader className={`custom-header ${isVisible ? "show" : "hide"}`}>
+      <IonToolbar className="custom-toolbar" style={{ '--background': 'transparent' }}>
+        {/* Logo bên trái */}
+        <div className="header-left">
+          <Link to="/">
+            <IonImg src={logo} alt="Logo" className="logo" />
+          </Link>
+        </div>
 
-        <div className="account-section">
-          <div className="button-group">
-            <IonButton className="header-login-btn" onClick={() => history.push("/login")}>
-              Sign In
-            </IonButton>
-            <IonButton className="register-btn" onClick={() => history.push("/signup")}>
-              Sign Up
-            </IonButton>
+        {/* Navigation giữa */}
+        <nav className="header-nav">
+          <Link to="/" className="nav-link">Trang chủ</Link>
+          <Link to="/tour" className="nav-link">Tour</Link>
+          <Link to="/hotel" className="nav-link">Khách sạn</Link>
+          <Link to="/location" className="nav-link">Địa điểm</Link>
+        </nav>
+
+        {/* Hành động bên phải */}
+        <div className="header-actions">
+          <Link to="/signin">
+            <IonButton className="btn-signin" fill="solid">Sign In</IonButton>
+          </Link>
+          <Link to="/signup">
+            <IonButton className="btn-signup" fill="outline">Sign Up</IonButton>
+          </Link>
+          <div className="divider" />
+          <div className="icon-wrapper">
+            <IonImg src={notifyIcon} className="header-icon" alt="Bell" />
           </div>
-          <IonImg src={line} alt="Line" className="line" />
-          <IonImg src={notify} alt="Notify" className="vector" />
-          <IonImg src={account} alt="Account" className="img" />
+          <div className="icon-wrapper">
+            <IonImg src={accountIcon} className="header-icon" alt="User" />
+          </div>
         </div>
       </IonToolbar>
-
-      {/* Toolbar 2: Navigation links */}
-      {/* 
-        Tạm thời comment các menu chưa có route để tránh trắng trang
-        Khi thêm route, bỏ comment bên dưới
-      */}
-      {/* 
-      <IonToolbar className="menu-toolbar">
-        <IonSegment
-          value={location.pathname}
-          onIonChange={handleSegmentChange}
-        >
-          <IonSegmentButton value="/homepage">
-            <IonLabel>Trang chủ</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="/Tour">
-            <IonLabel>Tour</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="/Hotel">
-            <IonLabel>Khách sạn</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="/Location">
-            <IonLabel>Địa điểm</IonLabel>
-          </IonSegmentButton>
-        </IonSegment>
-      </IonToolbar>
-      */}
     </IonHeader>
   );
 };

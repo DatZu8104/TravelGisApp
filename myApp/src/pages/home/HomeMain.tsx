@@ -1,16 +1,14 @@
-import React from 'react';
-import { IonPage, IonContent } from '@ionic/react';
-import HomeHeader from './HomeHeader';
-import HomeContent from './HomeContent';
+import React from "react";
+import MainLayout from "../../layout/MainLayout";
 
 const HomeMain: React.FC = () => {
   return (
-    <IonPage>
-      <HomeHeader />
-      <IonContent className="ion-padding">
-        <HomeContent />
-      </IonContent>
-    </IonPage>
+    <MainLayout>
+      <div style={{ padding: "16px" }}>
+        <h1>Welcome to Home Main!</h1>
+        {/* Các thành phần nội dung khác của trang */}
+      </div>
+    </MainLayout>
   );
 };
 

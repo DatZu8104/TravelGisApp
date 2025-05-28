@@ -1,27 +1,63 @@
-.hot-places-section {
-  background-color: #f4faff;
-  text-align: center;
-  padding: 40px 20px;
+.hotspots-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 100px;
+  background-color: #ffffff;
 }
 
-.hot-places-title {
-  font-size: 26px;
-  font-weight: 700;
-  color: #0a3d62;
-  display: block;
-  margin-bottom: 30px;
+.hotspots-title {
+  width: 80%;
+  max-width: 850px;
+  margin-top: 100px;
+  margin-bottom: 24px;
+  background-color: transparent;
+  margin-left: -300px;
 }
 
-.hot-place-img-wrapper {
-  border-radius: 50% / 20%;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.hotspots-gallery {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: transparent;
+  max-width: 100%;
 }
 
-.hot-place-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.hotspots-image {
+  width: 250px;
+  height: 375px;
+  object-fit: contain;
+  border-radius: 50% / 30%;
+ 
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover zoom + shadow effect */
+.hotspots-image:hover {
+  transform: scale(1.05) translateY(0px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Điều chỉnh vị trí từng ảnh */
+.hinh-1 {
+  transform: translateY(0px);
+}
+
+.hinh-2 {
+  transform: translateY(60px);
+}
+
+.hinh-3 {
+  transform: translateY(0px);
+}
+
+.hinh-4 {
+  transform: translateY(60px);
+}
+
+.hinh-5 {
+  transform: translateY(0px);
 }
