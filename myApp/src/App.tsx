@@ -44,10 +44,6 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
         {MYPATH.map(({ path, Component }) => {
           const isPrivate = path === "/homemain" || path.startsWith("/admin");
 
