@@ -44,23 +44,26 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        {MYPATH.map(({ path, Component }) => {
-          const isPrivate = path === "/homemain" || path.startsWith("/admin");
+        <IonContent>
+          {MYPATH.map(({ path, Component }) => {
+            const isPrivate = path === "/homemain" || path.startsWith("/admin");
 
-          return isPrivate ? (
-            <PrivateRoute key={path} exact path={path} component={Component} />
-          ) : (
-            <Route key={path} exact path={path} component={Component} />
-          );
-        })}
+            return isPrivate ? (
+              <PrivateRoute
+                key={path}
+                exact
+                path={path}
+                component={Component}
+              />
+            ) : (
+              <Route key={path} exact path={path} component={Component} />
+            );
+          })}
 
-        <Route exact path="/">
-          <Redirect to="/homepage" />
-        </Route>
+          <Route exact path="/">
+            <Redirect to="/homepage" />
+          </Route>
+        </IonContent>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

@@ -11,7 +11,7 @@
 
 .login-box {
   width: 500px;
-  padding: 20px 30px 10px;
+  padding: 10px 30px 10px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(21, 72, 123, 0.2);
   background: #fff;
@@ -26,7 +26,7 @@
 
 .login-box h2 {
   font-size: 36px;
-  margin: 0 0 25px;
+  margin: 0 0 20px;
   color: #15487b;
   font-weight: 700;
   letter-spacing: 1px;
@@ -66,10 +66,10 @@
   background-color: #fbc400;
   color: #15487b;
   font-weight: 700;
-  padding: 14px 0;
+  padding: 10px 0;
   border: none;
   border-radius: 30px;
-  margin-top: 10px;
+  margin-top: 1px;
   cursor: pointer;
   font-family: "Genos", sans-serif;
   font-size: 22px;
@@ -82,55 +82,8 @@
   color: #112f57;
 }
 
-.google-btn,
-.facebook-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 10px 0;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  font-weight: 700;
-  background-color: #15487b;
-  color: white;
-  font-family: "Genos", sans-serif;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 3px 8px rgba(21, 72, 123, 0.3);
-}
-
-.google-btn:hover,
-.facebook-btn:hover {
-  background-color: #0f3560;
-}
-
-.login-footer {
-  margin-top: 20px;
-  font-size: 15px;
-  color: #15487b;
-  font-family: "Genos", sans-serif;
-  text-align: center;
-}
-
-.signup-link {
-  color: #f36f3f;
-  font-weight: 700;
-  cursor: pointer;
-  margin-left: 6px;
-  transition: color 0.3s ease;
-}
-
-.signup-link:hover {
-  color: #d1581a;
-  text-decoration: underline;
-}
-
 .divider {
-  margin: 15px 0;
+  margin: 10px 0;
   font-family: "Genos", sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -155,9 +108,55 @@
   margin-left: 15px;
 }
 
+.social-buttons {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.google-btn,
+.facebook-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: #15487b;
+  color: white;
+  font-family: "Genos", sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 8px rgba(21, 72, 123, 0.3);
+}
+
+.google-btn:hover,
+.facebook-btn:hover {
+  background-color: #0f3560;
+}
+
 .img {
   height: 24px;
   width: 24px;
+}
+
+.login-footer p {
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-family: "Genos", sans-serif;
+}
+
+.signup-link {
+  color: #fbc400;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .error-msg {

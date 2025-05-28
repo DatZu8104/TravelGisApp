@@ -4,14 +4,11 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
-  IonInput,
-  IonButton,
-  IonItem,
-  IonLabel,
   IonToast,
 } from "@ionic/react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import Header from "../../components/globals/header";
 import { saveToken } from "../../utils/auth";
 import "../../css/Login.css";
 
@@ -21,7 +18,9 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     if (!username || !password) {
       setError("Vui lòng nhập đầy đủ thông tin.");
       return;
@@ -50,103 +49,92 @@ const Login: React.FC = () => {
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Đăng nhập</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+    <div>
+      <Header />
+      <div className="login-wrapper">
+        <div className="login-box">
+          <h2>LOGIN</h2>
 
-      <IonContent className="ion-padding">
-        <div className="login-wrapper">
-          <div className="login-box">
-            <h2>LOGIN</h2>
+          <form onSubmit={handleLogin}>
+            <label htmlFor="username">Email/Phone Number</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Ex: 03923434567 or NguyenVanA@gmail.com"
+            />
 
-            <IonItem>
-              <IonLabel position="stacked">Email/SĐT</IonLabel>
-              <IonInput
-                value={username}
-                onIonChange={(e) => setUsername(e.detail.value!)}
-                placeholder="Ex: 03923434567 or NguyenVanA@gmail.com"
-              />
-            </IonItem>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Nhập mật khẩu"
+            />
 
-            <IonItem>
-              <IonLabel position="stacked">Mật khẩu</IonLabel>
-              <IonInput
-                type="password"
-                value={password}
-                onIonChange={(e) => setPassword(e.detail.value!)}
-                placeholder="Nhập mật khẩu"
-              />
-            </IonItem>
+            {error && <p className="error-msg">{error}</p>}
 
-            <IonButton expand="block" onClick={handleLogin}>
-              Đăng nhập
-            </IonButton>
+            <button type="submit" className="sign-in-btn">
+              SIGN IN
+            </button>
+          </form>
 
-            <div className="divider">HOẶC</div>
+          <div className="divider">OR</div>
 
-            <IonButton expand="block" color="light">
-              <img
-                className="img"
-                src="src/img/ic_google.png"
-                alt="Google"
-                style={{ height: "20px", marginRight: "10px" }}
-              />
+          <div className="social-buttons">
+            <button className="google-btn">
+              <img className="img" src="src/img/ic_google.png" alt="Google" />
               Google
-            </IonButton>
+            </button>
 
-            <IonButton expand="block" color="primary">
-              <img
-                className="img"
-                src="src/img/ic_face.png"
-                alt="Facebook"
-                style={{ height: "20px", marginRight: "10px" }}
-              />
+            <button className="facebook-btn">
+              <img className="img" src="src/img/ic_face.png" alt="Facebook" />
               Facebook
-            </IonButton>
+            </button>
+          </div>
 
-            <div className="login-footer" style={{ marginTop: "16px" }}>
-              <p>
-                <span
-                  className="signup-link"
-                  onClick={() => history.push("/ForgotPassword")}
-                  style={{
-                    cursor: "pointer",
-                    color: "#fbc400",
-                    textDecoration: "underline",
-                  }}
-                >
-                  Quên mật khẩu?
-                </span>
-              </p>
-              <p>
-                Chưa có tài khoản?{" "}
-                <span
-                  className="signup-link"
-                  onClick={() => history.push("/signup")}
-                  style={{
-                    cursor: "pointer",
-                    color: "#fbc400",
-                    textDecoration: "underline",
-                  }}
-                >
-                  Đăng ký
-                </span>
-              </p>
-            </div>
+          <div className="login-footer">
+            <p>
+              <span
+                className="signup-link"
+                onClick={() => history.push("/ForgotPassword")}
+                style={{
+                  cursor: "pointer",
+                  color: "#fbc400",
+                  textDecoration: "underline",
+                }}
+              >
+                Forgot Password
+              </span>
+            </p>
+            <p>
+              <span
+                className="signup-link"
+                style={{
+                  cursor: "pointer",
+                  color: "#0f3560",
+                  marginRight: "10px",
+                }}
+              >
+                Don’t have an account?
+              </span>
+              <span
+                className="signup-link"
+                onClick={() => history.push("/signup")}
+                style={{
+                  cursor: "pointer",
+                  color: "#fbc400",
+                }}
+              >
+                SIGN UP
+              </span>
+            </p>
           </div>
         </div>
-
-        <IonToast
-          isOpen={!!error}
-          message={error || ""}
-          duration={2000}
-          onDidDismiss={() => setError(null)}
-        />
-      </IonContent>
-    </IonPage>
+      </div>
+    </div>
   );
 };
 

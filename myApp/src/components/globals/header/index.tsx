@@ -36,7 +36,7 @@ export const Header = () => {
           </button>
           <button
             className="register-btn"
-            onClick={() => history.push("/SignUp")}
+            onClick={() => history.push("/signup")}
           >
             Sign Up
           </button>
