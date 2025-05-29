@@ -72,7 +72,7 @@ body, html {
 
 .header-nav {
   display: flex;
-  gap: 20px;
+  gap: 50px;
 }
 
 .header-nav a {
@@ -83,6 +83,7 @@ body, html {
   text-transform: uppercase;     /* In hoa toàn bộ để nổi bật */
   letter-spacing: 0.5px;         /* Giãn nhẹ cho dễ đọc */
   transition: color 0.2s ease;
+  font-size: 1.2rem;
 }
 
 .header-nav a:hover {
@@ -196,7 +197,7 @@ section {
 }
 
 section h2 {
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--main-color);
   margin-bottom: 20px;
@@ -223,6 +224,7 @@ section h2 {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 /* Hot places scrollable on mobile */
@@ -260,7 +262,7 @@ section h2 {
 }
 
 .light-card ion-card-title {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: var(--main-color);
 }
@@ -276,7 +278,7 @@ section h2 {
   background-color: #0b2e59;
   color: white;
   padding: 40px 24px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   gap: 32px;
 }
 
@@ -302,7 +304,7 @@ section h2 {
 }
 
 section.hero {
-  padding: 2px !important; /* ✅ loại bỏ padding ảnh */
+  padding: 2px !important; 
 }
 .auth-buttons {
   display: flex;
@@ -390,7 +392,7 @@ section.hero {
 }
 
 .promo-card-title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #1e293b;
 }
@@ -429,7 +431,7 @@ section.hero {
   border: none;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #1e293b;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -446,8 +448,8 @@ section.hero {
 }
 .promo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* ✅ luôn 2 cột */
-  gap: 24px; /* khoảng cách giữa các card */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 24px; 
   padding: 0 16px;
 }
 
@@ -484,10 +486,14 @@ section.hero {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .tour-title {
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #e55300;
   line-height: 1.4;
@@ -525,12 +531,12 @@ section.hero {
 }
 
 .tour-duration::before {
-  content: '\23F0'; /* đồng hồ */
+  content: '\23F0'; 
 }
 
 .tour-price {
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: var(--tour-price);
   text-align: right;
   margin-top: auto;
@@ -544,12 +550,13 @@ section.hero {
   border: none;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #1e293b;
   cursor: pointer;
   transition: background-color 0.2s ease;
   box-shadow: inset 0 -2px 0 #e6ac00;
   text-align: center;
+  margin-top: auto; 
 }
 
 .tour-button:hover {
@@ -566,6 +573,18 @@ section.hero {
 }
 
 @media (max-width: 768px) {
+  .promo-button{
+    font-size: 1rem;
+  }
+  .tour-title {
+    font-size: 1.2rem;
+  }
+  .tour-price{
+    font-size: 1.5rem;
+  }
+  .tour-price{
+    font-size: 1rem;
+  }
   .menu-toggle {
     display: block;
   }
@@ -573,8 +592,16 @@ section.hero {
     display: none;
   }
   .tour-card {
-    flex: 0 0 80%;
-    width: 80%;
+    flex: 0 0 100%;
+    width: 100%;
+    margin: 0 auto; /* ✅ căn giữa card trong mobile */
+  }
+  .tour-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ✅ căn giữa toàn bộ grid */
+    gap: 24px;
+    padding: 0 16px;
   }
   .hero-text h1 {
     font-size: 2rem;
@@ -583,36 +610,36 @@ section.hero {
     font-size: 1rem;
   }
   section h2 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
   .navbar {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 12px 16px;
-  gap: 16px;
-  justify-content: flex-start;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px 16px;
+    gap: 16px;
+    justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
 
-.navbar ion-button {
-  flex-shrink: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--main-color);
-  text-transform: uppercase;
-  white-space: nowrap;
-  scroll-snap-align: start;
-  transition: all 0.2s ease;
-}
+  .navbar ion-button {
+    flex-shrink: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--main-color);
+    text-transform: uppercase;
+    white-space: nowrap;
+    scroll-snap-align: start;
+    transition: all 0.2s ease;
+  }
 
-.navbar ion-button:hover {
-  color: var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
-}
+  .navbar ion-button:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+  }
 
   .hot-places ion-row {
     display: flex;
@@ -622,25 +649,6 @@ section.hero {
     scroll-snap-type: x mandatory;
     padding-bottom: 8px;
   }
-  .hot-places ion-col {
-    flex: 0 0 100%;
-    max-width: 100%;
-    scroll-snap-align: start;
-    box-sizing: border-box;
-  }
-  .footer {
-    grid-template-columns: 1fr;
-    text-align: left;
-    padding: 24px;
-  }
-   .hot-places ion-row {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 16px;
-    padding-bottom: 8px;
-  }
-
   .hot-places ion-col {
     flex: 0 0 100% !important;
     max-width: 100% !important;
@@ -662,8 +670,5 @@ section.hero {
 
   .promo-grid {
     grid-template-columns: 1fr; 
-  }
-  .tour-grid {
-    grid-template-columns: 1fr; /* ✅ Mobile: mỗi hàng 1 tour */
   }
 }

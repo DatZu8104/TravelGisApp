@@ -1,5 +1,4 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+
 import Header from "../../components/globals/header";
 import Footer from "../../components/globals/footer";
 import "../../css/Hotel.css";

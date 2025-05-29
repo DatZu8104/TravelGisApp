@@ -130,10 +130,15 @@ const HomePage: React.FC = () => {
     <IonPage>
       {/* Custom header bar */}
       <div className="header-bar">
-          <div className="header-logo">OBs</div>
           <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
             ☰
           </button>
+          <div className="logo-container">
+              <img src="/logo.svg" alt="Logo" className="logo" />
+              <div className="header-logo">OBs</div>
+          </div>
+          
+          
           <nav className="header-nav">
             <a href="#">Trang chủ</a>
             <a href="#">Tour</a>
