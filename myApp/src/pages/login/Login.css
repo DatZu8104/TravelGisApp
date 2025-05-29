@@ -1,118 +1,119 @@
+/* Login.css */
+@import url('https://fonts.googleapis.com/css2?family=Genos:wght@400;600;700&display=swap');
+
+body {
+  font-family: "Genos", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
 .login-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 80px);
+  height: 100vh;
   background: linear-gradient(135deg, #e2ecf7, #c1d5f2);
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
-  padding: 10px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
 .login-box {
-  width: 500px;
-  padding: 20px 30px 10px;
+  width: 100%;
+  max-width: 400px;
+
+  padding: 24px 24px 16px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(21, 72, 123, 0.2);
   background: #fff;
   text-align: center;
   font-family: "Genos", sans-serif;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .login-box:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(21, 72, 123, 0.3);
 }
 
 .login-box h2 {
-  font-size: 36px;
-  margin: 0 0 25px;
+  font-size: 30px;
+  margin-bottom: 24px;
   color: #15487b;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
-.login-box form {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  color: #666;
+ion-item {
+  --background: transparent;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 12px;
 }
 
-.login-box label {
-  font-size: 14px;
-  margin-bottom: 6px;
+ion-label {
   font-weight: 600;
+  font-size: 14px;
   color: #15487b;
 }
 
-.login-box input {
-  padding: 12px 15px;
-  margin-bottom: 20px;
-  border: 1.8px solid #cbd3df;
-  border-radius: 8px;
-  font-family: "Genos", sans-serif;
+ion-input {
   font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-
-.login-box input:focus {
-  border-color: #15487b;
-  outline: none;
-  box-shadow: 0 0 8px rgba(21, 72, 123, 0.3);
+  padding: 8px;
 }
 
 .sign-in-btn {
-  background-color: #fbc400;
-  color: #15487b;
+  --background: #fbc400;
+  --color: #15487b;
+  --border-radius: 24px;
+  --box-shadow: 0 3px 6px rgba(251, 196, 0, 0.35);
   font-weight: 700;
-  padding: 14px 0;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Remove native background and borders */
+  background: none;
   border: none;
-  border-radius: 30px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-family: "Genos", sans-serif;
-  font-size: 22px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 0 5px 10px rgba(251, 196, 0, 0.4);
+  box-shadow: none;
+  background-image: none;
+  color: inherit;
 }
 
-.sign-in-btn:hover {
-  background-color: #e0b400;
-  color: #112f57;
-}
-
+.sign-in-btn,
 .google-btn,
 .facebook-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 10px 0;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
+  background-color: #fbc400;
+  color: #15487b;
+  border-radius: 24px;
+  box-shadow: 0 3px 6px rgba(251, 196, 0, 0.35);
   font-weight: 700;
-  background-color: #15487b;
-  color: white;
-  font-family: "Genos", sans-serif;
+  text-transform: uppercase;
   font-size: 16px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 3px 8px rgba(21, 72, 123, 0.3);
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: none;
+  gap: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 12px;
 }
 
-.google-btn:hover,
-.facebook-btn:hover {
-  background-color: #0f3560;
+.google-btn img,
+.facebook-btn img {
+  height: 20px;
+  width: 20px;
 }
 
 .login-footer {
-  margin-top: 20px;
-  font-size: 15px;
+  margin-top: 14px;
+  font-size: 14px;
   color: #15487b;
-  font-family: "Genos", sans-serif;
   text-align: center;
 }
 
@@ -130,34 +131,28 @@
 }
 
 .divider {
-  margin: 15px 0;
-  font-family: "Genos", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  color: #999;
+  margin: 16px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #aaa;
   display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  position: relative;
 }
 
 .divider::before,
 .divider::after {
-  content: "";
+  content: '';
   flex: 1;
-  border-bottom: 1px solid #ccc;
-}
-
-.divider:not(:empty)::before {
-  margin-right: 15px;
-}
-
-.divider:not(:empty)::after {
-  margin-left: 15px;
+  height: 1px;
+  background: #ccc;
+  margin: 0 10px;
 }
 
 .img {
-  height: 24px;
-  width: 24px;
+  height: 22px;
+  width: 22px;
 }
 
 .error-msg {
@@ -165,5 +160,4 @@
   margin-top: 10px;
   font-size: 14px;
   font-weight: 600;
-  font-family: "Genos", sans-serif;
 }
