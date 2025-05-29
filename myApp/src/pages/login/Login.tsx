@@ -13,7 +13,7 @@ import {
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { saveToken } from "../../utils/auth";
-import "../../css/Login.css";
+import "./Login.css";
 
 const Login: React.FC = () => {
   const history = useHistory();
