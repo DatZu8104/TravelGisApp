@@ -14,7 +14,7 @@ import {
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './homepage.css';
+import './home.css';
 const promotionList = [
   {
     id: 1,
@@ -122,7 +122,7 @@ const diaDiemList = [
   },
 ];
 
-const HomePage: React.FC = () => {
+const Home: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const pauseTrack = (state: boolean) => setIsPaused(state);
@@ -289,4 +289,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default Home;

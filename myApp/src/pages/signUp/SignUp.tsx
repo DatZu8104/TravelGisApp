@@ -112,7 +112,7 @@ const SignUp: React.FC = () => {
                 <p>
                 <span
                   className="signup-link"
-                  onClick={() => history.push("/homepage")}
+                  onClick={() => history.push("/home")}
                 >
                   Quay về trang chủ
                 </span>
