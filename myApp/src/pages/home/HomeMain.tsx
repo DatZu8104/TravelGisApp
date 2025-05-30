@@ -1,14 +1,21 @@
-import React from "react";
-import MainLayout from "../../layout/MainLayout";
+import React from 'react';
+import { IonContent, IonPage } from '@ionic/react';
+
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import MarineBannerSection from './MarineBannerSection/MarineBannerSection';
+import PromotionsSection from './PromotionsSection/PromotionsSection';
 
 const HomeMain: React.FC = () => {
   return (
-    <MainLayout>
-      <div style={{ padding: "16px" }}>
-        <h1>Welcome to Home Main!</h1>
-        {/* Các thành phần nội dung khác của trang */}
-      </div>
-    </MainLayout>
+    <IonPage>
+      <Header />
+      <IonContent fullscreen>
+        <MarineBannerSection/>
+        <PromotionsSection/>
+        <Footer />
+      </IonContent>
+    </IonPage>
   );
 };
 

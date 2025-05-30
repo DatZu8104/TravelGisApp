@@ -49,7 +49,7 @@ const App: React.FC = () => (
           />
         ))}
         <Route exact path="/">
-          <Redirect to="/homepage" />
+          <Redirect to="/homemain" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

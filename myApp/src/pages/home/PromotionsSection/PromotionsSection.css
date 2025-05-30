@@ -1,0 +1,61 @@
+.marine-banner-section { 
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0px 0;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  gap: 0px;
+
+}
+
+/* CỘT TRÁI: Địa điểm hot + Khuyến mãi */
+.left-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left-banner img {
+  width: 800px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* CỘT PHẢI: Bản đồ + Bài viết + Khách sạn */
+.right-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.right-banner img {
+  width: 380px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect for the map image */
+.hover-map {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-map:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+.divider {
+  width: 1px;
+  background-color: #ccc;
+  height: 100%;
+  margin: 0 16px;
+}
