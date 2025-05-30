@@ -1,7 +1,7 @@
 import { Redirect, Route } from "react-router-dom";
 import {
   IonApp,
-  IonContent,
+  // IonContent,
   IonRouterOutlet,
   setupIonicReact,
 } from "@ionic/react";
@@ -11,9 +11,12 @@ import HomePage from "./pages/home/HomePage";
 import Login from "./pages/login/Login";
 import ChooseLoginPage from "./pages/login/ChooseLoginPage";
 import HomeMain from "./pages/home/HomeMain";
+import ForgotPassword from "./pages/forgot/ForgotPassword";
 import SignUp from "./pages/signUp/SignUp";
 import Hotel from "./pages/hotel/index";
 import PrivateRoute from "../src/pages/routes/PrivateRoute";
+import HotelList from "../src/pages/hotelList/HotelList";
+
 
 // Ionic CSS
 import "@ionic/react/css/core.css";
@@ -37,6 +40,8 @@ const MYPATH = [
   { path: "/signup", Component: SignUp },
   { path: "/homemain", Component: HomeMain },
   { path: "/hotel", Component: Hotel },
+  { path: "/forgotpassword", Component: ForgotPassword },
+  { path: "/hotellist", Component: HotelList },
 ];
 
 const App: React.FC = () => (
