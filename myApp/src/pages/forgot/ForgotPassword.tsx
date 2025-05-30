@@ -1,6 +1,5 @@
 import * as React from "react";
 import {Link} from "react-router-dom";
-import "../../css/Login.css";
 import { Header } from "./ForgotPasswordHeader";
 
 const ForgotPassword = () => {

@@ -13,7 +13,7 @@ import ChooseLoginPage from "./pages/login/ChooseLoginPage";
 import HomeMain from "./pages/home/HomeMain";
 import ForgotPassword from "./pages/forgot/ForgotPassword";
 import SignUp from "./pages/signUp/SignUp";
-import Hotel from "./pages/hotel/index";
+import Hotel from "./pages/hotel/hotel";
 import PrivateRoute from "../src/pages/routes/PrivateRoute";
 import HotelList from "../src/pages/hotelList/HotelList";
 
@@ -41,7 +41,7 @@ const MYPATH = [
   { path: "/homemain", Component: HomeMain },
   { path: "/hotel", Component: Hotel },
   { path: "/forgotpassword", Component: ForgotPassword },
-  { path: "/hotellist", Component: HotelList },
+  { path: "/hotel", Component: Hotel },
 ];
 
 const App: React.FC = () => (

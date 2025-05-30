@@ -32,7 +32,7 @@ const StarRating = ({ count = 5 }) => {
   return <div>{stars}</div>;
 };
 
-function HotelListPage() {
+function Hotel() {
   return (
     <div className="Hotel">
       <Header />
@@ -215,4 +215,4 @@ function HotelListPage() {
   );
 }
 
-export default HotelListPage;
+export default Hotel;
