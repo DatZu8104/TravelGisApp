@@ -29,7 +29,6 @@ import "@ionic/react/css/text-alignment.css";
 import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
-import "@ionic/react/css/palettes/dark.system.css";
 import "./theme/variables.css";
 
 setupIonicReact();
@@ -44,11 +43,7 @@ const MYPATH = [
   { path: "/forgotpassword", Component: ForgotPassword },
   { path: "/hotellist", Component: HotelList },
 ];
-// // tui comment cho nay de chay code nhoe :>
-// const App: React.FC = () => (
-//   <IonApp>
-//     <IonReactRouter>
-//       <IonRouterOutlet>
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>

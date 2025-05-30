@@ -1,0 +1,163 @@
+/* Login.css */
+@import url('https://fonts.googleapis.com/css2?family=Genos:wght@400;600;700&display=swap');
+
+body {
+  font-family: "Genos", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e2ecf7, #c1d5f2);
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+
+  padding: 24px 24px 16px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(21, 72, 123, 0.2);
+  background: #fff;
+  text-align: center;
+  font-family: "Genos", sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(21, 72, 123, 0.3);
+}
+
+.login-box h2 {
+  font-size: 30px;
+  margin-bottom: 24px;
+  color: #15487b;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+ion-item {
+  --background: transparent;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 12px;
+}
+
+ion-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #15487b;
+}
+
+ion-input {
+  font-size: 16px;
+  padding: 8px;
+}
+
+.sign-in-btn {
+  --background: #fbc400;
+  --color: #15487b;
+  --border-radius: 24px;
+  --box-shadow: 0 3px 6px rgba(251, 196, 0, 0.35);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Remove native background and borders */
+  background: none;
+  border: none;
+  box-shadow: none;
+  background-image: none;
+  color: inherit;
+}
+
+.sign-in-btn,
+.google-btn,
+.facebook-btn {
+  background-color: #fbc400;
+  color: #15487b;
+  border-radius: 24px;
+  box-shadow: 0 3px 6px rgba(251, 196, 0, 0.35);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: none;
+  gap: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.google-btn img,
+.facebook-btn img {
+  height: 20px;
+  width: 20px;
+}
+
+.login-footer {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #15487b;
+  text-align: center;
+}
+
+.signup-link {
+  color: #f36f3f;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+  color: #d1581a;
+  text-decoration: underline;
+}
+
+.divider {
+  margin: 16px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+  margin: 0 10px;
+}
+
+.img {
+  height: 22px;
+  width: 22px;
+}
+
+.error-msg {
+  color: #e74c3c;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}

@@ -1,8 +1,10 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "../../components/globals/header";
 import Footer from "../../components/globals/footer";
 import "../../css/Hotel.css";
+
+// Bạn có thể dùng import nếu ảnh không nằm trong /public
+// import hotelImg from "../../img/hotel.png";
+// import contactImg from "../../img/contact.png";
 
 const templateHotel = {
   name: "Khu nghỉ dưỡng................",
@@ -14,11 +16,11 @@ const templateHotel = {
 };
 
 const hotels = Array.from({ length: 10 }, (_, index) => ({
-  id: (index % 2) + 1, // luân phiên id 1 và 2
+  id: index, // dùng index làm id duy nhất
   ...templateHotel,
 }));
 
-const StarRating = ({ count }) => {
+const StarRating = ({ count = 5 }) => {
   const stars = [];
   for (let i = 0; i < count; i++) {
     stars.push(
@@ -63,7 +65,7 @@ function HotelListPage() {
           <div className="sidebar">
             <div className="contact">
               <img
-                src="src/img/contact.png"
+                src="/img/contact.png"
                 alt="support"
                 className="support-img"
               />
@@ -113,7 +115,6 @@ function HotelListPage() {
                 <hr />
               </div>
 
-              {/* Accommodation Type Filter */}
               <div className="type-filter">
                 <h4>Loại hình nơi ở</h4>
                 {[
@@ -133,7 +134,6 @@ function HotelListPage() {
                 <hr />
               </div>
 
-              {/* Amenities Filter */}
               <div className="amenities-filter">
                 <h4>Tiện ích</h4>
                 {[
@@ -151,6 +151,7 @@ function HotelListPage() {
                 <div className="see-more">Xem thêm</div>
               </div>
             </div>
+
             <div className="guide-card">
               <h2 className="guide-title">Cẩm nang du lịch Vũng Tàu</h2>
               <p>
@@ -179,7 +180,7 @@ function HotelListPage() {
             {hotels.map((hotel) => (
               <div key={hotel.id} className="hotel-item">
                 <img
-                  src="src/img/hotel.png"
+                  src="/img/hotel.png"
                   alt="hotel"
                   className="hotel-img"
                 />
@@ -204,8 +205,9 @@ function HotelListPage() {
           </div>
         </div>
       </div>
-      <div class="load-more-container">
-        <button class="load-more-btn">Hiển thị thêm 357 khách sạn</button>
+
+      <div className="load-more-container">
+        <button className="load-more-btn">Hiển thị thêm 357 khách sạn</button>
       </div>
 
       <Footer />

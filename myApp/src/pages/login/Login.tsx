@@ -13,7 +13,7 @@ import {
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { saveToken } from "../../utils/auth";
-import "../../css/Login.css";
+import "./Login.css";
 
 const Login: React.FC = () => {
   const history = useHistory();
@@ -51,11 +51,7 @@ const Login: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Đăng nhập</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <IonHeader></IonHeader>
 
       <IonContent className="ion-padding">
         <div className="login-wrapper">
@@ -81,58 +77,46 @@ const Login: React.FC = () => {
               />
             </IonItem>
 
-            <IonButton expand="block" onClick={handleLogin}>
+            <IonButton expand="block" onClick={handleLogin} className="sign-in-btn">
               Đăng nhập
             </IonButton>
 
             <div className="divider">HOẶC</div>
 
-            <IonButton expand="block" color="light">
-              <img
-                className="img"
-                src="src/img/ic_google.png"
-                alt="Google"
-                style={{ height: "20px", marginRight: "10px" }}
-              />
+            <IonButton expand="block" className="google-btn">
+              <img className="img" src="src/img/ic_google.png" alt="Google" />
               Google
             </IonButton>
 
-            <IonButton expand="block" color="primary">
-              <img
-                className="img"
-                src="src/img/ic_face.png"
-                alt="Facebook"
-                style={{ height: "20px", marginRight: "10px" }}
-              />
+            <IonButton expand="block" className="facebook-btn">
+              <img className="img" src="src/img/ic_face.png" alt="Facebook" />
               Facebook
             </IonButton>
 
-            <div className="login-footer" style={{ marginTop: "16px" }}>
+            <div className="login-footer">
               <p>
                 <span
                   className="signup-link"
                   onClick={() => history.push("/ForgotPassword")}
-                  style={{
-                    cursor: "pointer",
-                    color: "#fbc400",
-                    textDecoration: "underline",
-                  }}
                 >
                   Quên mật khẩu?
                 </span>
               </p>
               <p>
-                Chưa có tài khoản?{" "}
+                Chưa có tài khoản?{' '}
                 <span
                   className="signup-link"
                   onClick={() => history.push("/signup")}
-                  style={{
-                    cursor: "pointer",
-                    color: "#fbc400",
-                    textDecoration: "underline",
-                  }}
                 >
                   Đăng ký
+                </span>
+              </p>
+              <p>
+                <span
+                  className="signup-link"
+                  onClick={() => history.push("/homepage")}
+                >
+                  Quay về trang chủ
                 </span>
               </p>
             </div>
