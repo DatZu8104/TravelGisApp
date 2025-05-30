@@ -4,7 +4,7 @@ import { IonPage, IonContent } from "@ionic/react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import HeroSection from "../../components/HeroSection/HeroSection";
-import TourSection from "../../components/TourSection/TourSection"; // ✅ Đã thêm
+import TourSection from "../../components/TourSection/TourSection"; 
 import CheckinGallery from "../../components/CheckinGallery/CheckinGallery";
 import VungTauSpecialties from "../../components/VungTauSpecialties/VungTauSpecialties";
 import HotSpots from "../../components/HotSpots/HotSpots";
