@@ -13,7 +13,7 @@ import {
 } from '@ionic/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import LoginNotice from '../loginnotice/LoginNotice';
 import './home.css';
 const promotionList = [
   {
@@ -126,6 +126,14 @@ const Home: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const pauseTrack = (state: boolean) => setIsPaused(state);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const handleLogin = () => {
+    setShowLoginModal(false);
+    setTimeout(() => {
+      window.location.href = "/login"; // 👈 điều hướng thủ công
+    }, 150);
+  };
+
   return (
     <IonPage>
       {/* Custom header bar */}
@@ -140,20 +148,20 @@ const Home: React.FC = () => {
           
           
           <nav className="header-nav">
-            <a href="#">Trang chủ</a>
-            <a href="#">Tour</a>
-            <a href="#">Khách sạn</a>
-            <a href="#">Địa điểm</a>
+            <IonButton fill="clear"> <a href="#">Trang chủ</a></IonButton>
+            <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Tour</a></IonButton>
+            <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Khách sạn</a></IonButton>
+            <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Địa điểm</a></IonButton>
           </nav>
           <div className="auth-buttons">
             <Link to="/login" className="auth-signin">Sign in</Link>
             <Link to="/signup" className="auth-signup">Sign Up</Link>
           </div>
           <div className={`mobile-nav ${menuOpen ? 'show' : ''}`}>
-              <a href="#">Trang chủ</a>
-              <a href="#">Tour</a>
-              <a href="#">Khách sạn</a>
-              <a href="#">Địa điểm</a>
+              <IonButton fill="clear"> <a href="#">Trang chủ</a></IonButton>
+              <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Tour</a></IonButton>
+              <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Khách sạn</a></IonButton>
+              <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Địa điểm</a></IonButton>
           </div>
       </div>
 
@@ -167,11 +175,10 @@ const Home: React.FC = () => {
 
         {/* Navbar second level */}
         <div className="navbar">
-          <IonButton fill="clear">Home</IonButton>
-          <IonButton fill="clear">Khuyến mãi</IonButton>
-          <IonButton fill="clear">Điểm đến</IonButton>
-          <IonButton fill="clear">Khách sạn</IonButton>
-          <IonButton fill="clear">Ẩm thực</IonButton>
+          <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>Khuyến mãi</IonButton>
+          <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>Điểm đến</IonButton>
+          <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>Khách sạn</IonButton>
+          <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>Ẩm thực</IonButton>
         </div>
 
 
@@ -219,7 +226,7 @@ const Home: React.FC = () => {
                       </div>
                     )}
                   </div>
-                  <button className="promo-button">Xem Khuyến Mãi</button>
+                  <button className="promo-button" onClick={() => setShowLoginModal(true)}>Xem Khuyến Mãi</button>
                 </div>
               </div>
             ))}
@@ -246,7 +253,7 @@ const Home: React.FC = () => {
                     </div>
                     <div className="tour-duration">{tour.duration}</div>
                     <div className="tour-price">{tour.subtitle}</div>
-                    <div className="tour-button">Xem tour</div>
+                    <div className="tour-button" onClick={() => setShowLoginModal(true)}>Xem tour</div>
                   </div>
                 </div>
               ))}
@@ -258,35 +265,41 @@ const Home: React.FC = () => {
 
         {/* Footer */}
         <footer className="footer">
-  <div>
-    <strong>ShareRight</strong>
-    <p>© 2014–2023 BuyLeft.<br />All Rights Reserved.</p>
-  </div>
-  <div>
-    <h4>Quick links</h4>
-    <a href="#">About</a>
-    <a href="#">Items</a>
-    <a href="#">FAQs</a>
-    <a href="#">Blog</a>
-  </div>
-  <div>
-    <h4>Terms of use</h4>
-    <a href="#">Terms & Conditions</a>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Cookies Policy</a>
-  </div>
-  <div>
-    <h4>Contact us</h4>
-    <p>📞 0123 456 789</p>
-    <p>✉️ enquiry@share-right.com</p>
-    <h4>Follow us</h4>
-    <p>🔵 Facebook | 📷 Instagram | 💼 LinkedIn</p>
-  </div>
-</footer>
+          <div>
+            <strong>ShareRight</strong>
+            <p>© 2014–2023 BuyLeft.<br />All Rights Reserved.</p>
+          </div>
+          <div>
+            <h4>Quick links</h4>
+            <a href="#">About</a>
+            <a href="#">Items</a>
+            <a href="#">FAQs</a>
+            <a href="#">Blog</a>
+          </div>
+          <div>
+            <h4>Terms of use</h4>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookies Policy</a>
+          </div>
+          <div>
+            <h4>Contact us</h4>
+            <p>📞 0123 456 789</p>
+            <p>✉️ enquiry@share-right.com</p>
+            <h4>Follow us</h4>
+            <p>🔵 Facebook | 📷 Instagram | 💼 LinkedIn</p>
+          </div>
+        </footer>
 
+        <LoginNotice
+          isOpen={showLoginModal}
+          onClose={() => setShowLoginModal(false)}
+          onLogin={handleLogin}
+        />
       </IonContent>
     </IonPage>
   );
+  
 };
 
 export default Home;
