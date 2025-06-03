@@ -1,0 +1,109 @@
+/* ===== PHẦN GIỚI THIỆU NHÓM ===== */
+
+.member-section {
+  padding: 24px 12px;
+  background-image: url('/assets/intro-bg.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.title-box {
+  background: linear-gradient(to right, #fff7e6, #ffe9cc);
+  border-radius: 36px;
+  text-align: center;
+  padding: 24px 16px;
+  max-width: 750px;
+  margin: 0 auto 32px auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.title-box p {
+  margin: 2px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c2c2c;
+  letter-spacing: 0.2px;
+}
+
+.title-box h2 {
+  font-size: 1.75rem;
+  color: #123c74;
+  font-weight: 900;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.member-col {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.member-card {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 420px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.member-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #15487b;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.member-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.member-id {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .title-box {
+    padding: 20px 12px;
+  }
+  .title-box h2 {
+    font-size: 1.5rem;
+  }
+  .member-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+  .member-img {
+    width: 80px;
+    height: 80px;
+  }
+  .member-name {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,75 @@
+:root {
+  --ion-background-color: #ffffff;
+  --ion-text-color: #000000;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 6px;
+  font-size: 16px;
+
+  background-color: #ffffff; /* ✅ Nền trắng */
+  color: #000000;            /* ✅ Chữ đen */
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #f7f9fc;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-align: center;
+  color: #1e3a8a;
+}
+
+.contact-container p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.contact-form button:hover {
+  background-color: #3b4cca;
+}

@@ -1,11 +1,27 @@
-import Header from "../../components/globals/header";
-import Footer from "../../components/globals/footer";
-import "../../css/Hotel.css";
-
-// Bạn có thể dùng import nếu ảnh không nằm trong /public
-// import hotelImg from "../../img/hotel.png";
-// import contactImg from "../../img/contact.png";
-
+import {
+  IonPage,
+  IonContent,
+  IonImg,
+  IonButton,
+  IonInput,
+  IonSelect,
+  IonSelectOption,
+  IonCheckbox,
+  IonLabel,
+  IonItem,
+  IonList,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent
+} from '@ionic/react';
+import "./hotel.css";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import HeaderMain from '../../components/headerMain';
 const templateHotel = {
   name: "Khu nghỉ dưỡng................",
   rating: 5,
@@ -16,202 +32,219 @@ const templateHotel = {
 };
 
 const hotels = Array.from({ length: 10 }, (_, index) => ({
-  id: index, // dùng index làm id duy nhất
+  id: index,
   ...templateHotel,
 }));
 
 const StarRating = ({ count = 5 }) => {
-  const stars = [];
-  for (let i = 0; i < count; i++) {
-    stars.push(
-      <span key={i} className="star">
-        ★
-      </span>
-    );
-  }
-  return <div>{stars}</div>;
+  return (
+    <div>{[...Array(count)].map((_, i) => <span key={i} className="star">★</span>)}</div>
+  );
 };
 
 function Hotel() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
-    <div className="Hotel">
-      <Header />
+    <IonPage>
+      <HeaderMain />
 
-      <div className="hero-image">
-        <div className="search-bar">
-          <input type="text" placeholder="Vũng Tàu" />
-          <input type="date" placeholder="Bắt đầu" />
-          <input type="date" placeholder="Kết thúc" />
-          <select>
-            <option>Loại phòng</option>
-            <option>Phòng đơn</option>
-            <option>Phòng đôi</option>
-            <option>Phòng gia đình</option>
-            <option>Phòng VIP</option>
-          </select>
-          <button className="btn-search">TÌM</button>
+      <IonContent fullscreen>
+        <div className="hero-image">
+          <IonGrid className="search-bar">
+            <IonRow>
+              <IonCol><IonInput placeholder="Vũng Tàu"></IonInput></IonCol>
+              <IonCol><IonInput type="date" /></IonCol>
+              <IonCol><IonInput type="date" /></IonCol>
+              <IonCol>
+                <IonSelect placeholder="Loại phòng">
+                  <IonSelectOption>Phòng đơn</IonSelectOption>
+                  <IonSelectOption>Phòng đôi</IonSelectOption>
+                  <IonSelectOption>Phòng gia đình</IonSelectOption>
+                  <IonSelectOption>Phòng VIP</IonSelectOption>
+                </IonSelect>
+              </IonCol>
+              <IonCol><IonButton className="btn-search">TÌM</IonButton></IonCol>
+            </IonRow>
+          </IonGrid>
         </div>
-      </div>
 
-      <div className="app">
         <div className="breadcrumb">
           Trang chủ / <b>Khách sạn Vũng Tàu</b> <br />
           <a href="#">Xem bản đồ</a>
         </div>
 
-        <hr />
-
-        <div className="content">
-          <div className="sidebar">
-            <div className="contact">
-              <img
-                src="/img/contact.png"
-                alt="support"
-                className="support-img"
-              />
-              <div>
-                <p>19001823</p>
-                <p>19001823</p>
-                <p>19001823</p>
-              </div>
-            </div>
-
-            <div className="search-hotel-name">
-              <input type="text" placeholder="Nhập tên khách sạn" />
-              <button>🔍</button>
-            </div>
-            <div className="utility">
-              <div className="rating-filter">
-                <h4>Hạng khách sạn</h4>
-                {[5, 4, 3, 2, 1].map((star) => (
-                  <label key={star} className="star-filter">
-                    <input type="checkbox" />
-                    {[...Array(star)].map((_, i) => (
-                      <span key={i} className="star">
-                        ★
-                      </span>
-                    ))}
-                  </label>
-                ))}
-                <hr />
-              </div>
-
-              <div className="area-filter">
-                <h4>Khu vực</h4>
-                {[
-                  "Bãi đầu",
-                  "Bãi dứa",
-                  "Bãi sau",
-                  "Bãi trước",
-                  "Bình Châu",
-                  "Côn Đảo",
-                ].map((area, idx) => (
-                  <label key={idx} className="checkbox-label">
-                    <input type="checkbox" />
-                    {area}
-                  </label>
-                ))}
-                <div className="see-more">Xem thêm</div>
-                <hr />
-              </div>
-
-              <div className="type-filter">
-                <h4>Loại hình nơi ở</h4>
-                {[
-                  "Cottages/Cabins/Houses",
-                  "Khách sạn (Hotel)",
-                  "Căn hộ (Apartment)",
-                  "Khu nghỉ dưỡng (Resort)",
-                  "Nhà nghỉ (Homestay)",
-                  "Biệt thự (Villa)",
-                ].map((type, idx) => (
-                  <label key={idx} className="checkbox-label">
-                    <input type="checkbox" />
-                    {type}
-                  </label>
-                ))}
-                <div className="see-more">Xem thêm</div>
-                <hr />
-              </div>
-
-              <div className="amenities-filter">
-                <h4>Tiện ích</h4>
-                {[
-                  "Phòng gia đình",
-                  "Bãi biển riêng",
-                  "Hồ bơi",
-                  "Bãi đỗ xe oto",
-                  "Khu vui chơi trẻ em",
-                ].map((amenity, idx) => (
-                  <label key={idx} className="checkbox-label">
-                    <input type="checkbox" />
-                    {amenity}
-                  </label>
-                ))}
-                <div className="see-more">Xem thêm</div>
-              </div>
-            </div>
-
-            <div className="guide-card">
-              <h2 className="guide-title">Cẩm nang du lịch Vũng Tàu</h2>
-              <p>
-                Cách Sài Gòn khoảng 3 tiếng lái xe, Vũng Tàu là một trong những
-                điểm đến yêu thích của du khách phía Nam với đường bờ biển trải
-                dài đến 20km.
-              </p>
-              <p>
-                Đến với Vũng Tàu bạn sẽ có cảm giác bình yên, dễ chịu với những
-                con đường ven biển xinh đẹp thoáng mát. Một bên là biển, một bên
-                là núi, điểm xuyên cùng những ngôi chùa thanh tịnh hay nhà thờ
-                với kiến trúc độc đáo... Tất cả tạo nên một Vũng Tàu chưa bao
-                giờ hết thu hút.
-              </p>
-              <p>
-                Đặt phòng ngay và nhanh tay lưu lại cẩm nang du lịch Vũng Tàu
-                cho chuyến đi thú vị của bạn!
-              </p>
-              <a href="#" className="guide-link">
-                Xem thêm
-              </a>
-            </div>
-          </div>
-
-          <div className="hotel-list">
-            {hotels.map((hotel) => (
-              <div key={hotel.id} className="hotel-item">
-                <img
-                  src="/img/hotel.png"
-                  alt="hotel"
-                  className="hotel-img"
-                />
-                <div className="hotel-info">
-                  <h3>{hotel.name}</h3>
-                  <StarRating count={hotel.rating} />
-                  <p className="hotel-score">
-                    <b>{hotel.score}</b> {hotel.review} | 11111 đánh giá
-                  </p>
-                  <p className="hotel-address">{hotel.address}</p>
-                  <div className="hotel-tags">
-                    <span>Thương hiệu quốc tế</span>
-                    <span>Hiện đại</span>
+        <IonGrid className="content">
+          <IonRow>
+            <IonCol size="3">
+              <IonCard className="contact-card">
+                <IonCardContent className="contact-content">
+                  <div className="contact-left">
+                    <IonImg src="/assets/hotel-contact.png" className="support-img" />
                   </div>
-                </div>
-                <div className="hotel-price">
-                  <p>{hotel.price}</p>
-                  <button className="btn-book">Đặt phòng</button>
-                </div>
+                  <div className="contact-right">
+                    {[1, 2, 3].map((_, i) => (
+                      <div className="phone-row" key={i}>
+                        <IonImg src="/assets/phone.png" className="phone-icon" />
+                        <span className="phone-number">19001823</span>
+                      </div>
+                    ))}
+                  </div>
+                </IonCardContent>
+              </IonCard>
+
+              <div className="search-hotel-name">
+                <IonInput placeholder="Nhập tên khách sạn" className="hotel-input" />
+                <IonButton className="hotel-search-btn">🔍
+                </IonButton>
+                
               </div>
-            ))}
-          </div>
+              
+          
+
+              {/* Các filter dạng IonList */}
+              <IonList>
+                <IonItem><IonLabel>Hạng khách sạn</IonLabel></IonItem>
+                {[5,4,3,2,1].map(star => (
+                  <IonItem key={star}>
+                    <IonCheckbox slot="start" />
+                    <IonLabel>{'★'.repeat(star)}</IonLabel>
+                  </IonItem>
+                ))}
+              </IonList>
+
+              <IonCol size="12" size-md="3">
+                {/* Khu vực */}
+                <div className="filter-group">
+                  <h4>Khu vực</h4>
+                  {["Bãi đầu", "Bãi dứa", "Bãi sau", "Bãi trước", "Bình Châu", "Côn Đảo"].map((area, idx) => (
+                    <label key={idx} className="checkbox-label">
+                      <input type="checkbox" />
+                      {area}
+                    </label>
+                  ))}
+                  <div className="see-more">Xem thêm</div>
+                </div>
+
+                {/* Loại hình nơi ở */}
+                <div className="filter-group">
+                  <h4>Loại hình nơi ở</h4>
+                  {[
+                    "Cottages/Cabins/Houses",
+                    "Khách sạn (Hotel)",
+                    "Căn hộ (Apartment)",
+                    "Khu nghỉ dưỡng (Resort)",
+                    "Nhà nghỉ (Homestay)",
+                    "Biệt thự (Villa)",
+                  ].map((type, idx) => (
+                    <label key={idx} className="checkbox-label">
+                      <input type="checkbox" />
+                      {type}
+                    </label>
+                  ))}
+                  <div className="see-more">Xem thêm</div>
+                </div>
+
+                {/* Tiện ích */}
+                <div className="filter-group">
+                  <h4>Tiện ích</h4>
+                  {[
+                    "Phòng gia đình",
+                    "Bãi biển riêng",
+                    "Hồ bơi",
+                    "Bãi đỗ xe oto",
+                    "Khu vui chơi trẻ em",
+                  ].map((amenity, idx) => (
+                    <label key={idx} className="checkbox-label">
+                      <input type="checkbox" />
+                      {amenity}
+                    </label>
+                  ))}
+                  <div className="see-more">Xem thêm</div>
+                </div>
+
+                {/* Cẩm nang du lịch */}
+                <div className="guide-card">
+                  <h2 className="guide-title">Cẩm nang du lịch Vũng Tàu</h2>
+                  <p>
+                    Vũng Tàu là điểm đến yêu thích của du khách phía Nam với đường bờ biển dài đến 20km. Bạn sẽ có cảm giác bình yên, dễ chịu với những con đường ven biển xinh đẹp thoáng mát.
+                  </p>
+                  <p>
+                    Một bên là biển, một bên là núi, điểm xuyên cùng những ngôi chùa thanh tịnh hoặc nhà thờ kiến trúc độc đáo.
+                  </p>
+                  <a href="#" className="guide-link">Xem thêm</a>
+                </div>
+              </IonCol>
+
+            </IonCol>
+
+            <IonCol size="9">
+              {hotels.map(hotel => (
+                <IonCard key={hotel.id} className="hotel-item">
+                  <IonGrid>
+                    <IonRow>
+                      <IonCol size="4">
+                        <IonImg src="/assets/hotel-content.png" className="hotel-img" />
+                      </IonCol>
+                      <IonCol size="5">
+                        <IonCardHeader>
+                          <IonCardTitle>{hotel.name}</IonCardTitle>
+                        </IonCardHeader>
+                        <StarRating count={hotel.rating} />
+                        <p className="hotel-score"><b>{hotel.score}</b> {hotel.review} | 11111 đánh giá</p>
+                        <p className="hotel-address">{hotel.address}</p>
+                        <div className="hotel-tags">
+                          <span>Thương hiệu quốc tế</span>
+                          <span>Hiện đại</span>
+                        </div>
+                      </IonCol>
+                      <IonCol size="3" className="hotel-price">
+                        <p>{hotel.price}</p>
+                        <IonButton className="btn-book" fill="clear">Đặt phòng</IonButton>
+                      </IonCol>
+                    </IonRow>
+                  </IonGrid>
+                </IonCard>
+              ))}
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+
+        <div className="load-more-container">
+          <IonButton fill="clear" className="load-more-btn">Hiển thị thêm 357 khách sạn</IonButton>
         </div>
-      </div>
 
-      <div className="load-more-container">
-        <button className="load-more-btn">Hiển thị thêm 357 khách sạn</button>
-      </div>
+        {/* Footer */}
+        <footer className="footer" id="section-footer">
+          <div>
+            <strong>ShareRight</strong>
+            <p>© 2014–2023 BuyLeft.<br />All Rights Reserved.</p>
+          </div>
+          <div>
+            <h4>Quick links</h4>
+            <a href="#">About</a>
+            <a href="#">Items</a>
+            <a href="#">FAQs</a>
+            <a href="#">Blog</a>
+          </div>
+          <div>
+            <h4>Terms of use</h4>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookies Policy</a>
+          </div>
+          <div>
+            <h4>Contact us</h4>
+            <p>📞 0123 456 789</p>
+            <p>✉️ enquiry@share-right.com</p>
+            <h4>Follow us</h4>
+            <p>🔵 Facebook | 📷 Instagram | 💼 LinkedIn</p>
+          </div>
+        </footer>
 
-      <Footer />
-    </div>
+      </IonContent>
+    </IonPage>
   );
 }
 

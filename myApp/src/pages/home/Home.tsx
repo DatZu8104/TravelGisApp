@@ -12,9 +12,9 @@ import {
   IonCardSubtitle,
 } from '@ionic/react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import LoginNotice from '../loginnotice/LoginNotice';
 import './home.css';
+import Header from '../../components/header';
 const promotionList = [
   {
     id: 1,
@@ -123,47 +123,17 @@ const diaDiemList = [
 ];
 
 const Home: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const pauseTrack = (state: boolean) => setIsPaused(state);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const handleLogin = () => {
     setShowLoginModal(false);
     setTimeout(() => {
-      window.location.href = "/login"; // 👈 điều hướng thủ công
+      window.location.href = "/login";
     }, 150);
   };
 
   return (
     <IonPage>
-      {/* Custom header bar */}
-      <div className="header-bar">
-          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-            ☰
-          </button>
-          <div className="logo-container">
-              <img src="/logo.svg" alt="Logo" className="logo" />
-              <div className="header-logo">OBs</div>
-          </div>
-          
-          
-          <nav className="header-nav">
-            <IonButton fill="clear"> <a href="#">Trang chủ</a></IonButton>
-            <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Tour</a></IonButton>
-            <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Khách sạn</a></IonButton>
-            <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Địa điểm</a></IonButton>
-          </nav>
-          <div className="auth-buttons">
-            <Link to="/login" className="auth-signin">Sign in</Link>
-            <Link to="/signup" className="auth-signup">Sign Up</Link>
-          </div>
-          <div className={`mobile-nav ${menuOpen ? 'show' : ''}`}>
-              <IonButton fill="clear"> <a href="#">Trang chủ</a></IonButton>
-              <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Tour</a></IonButton>
-              <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Khách sạn</a></IonButton>
-              <IonButton fill="clear" onClick={() => setShowLoginModal(true)}> <a href="#">Địa điểm</a></IonButton>
-          </div>
-      </div>
+      <Header />
 
       <IonContent fullscreen className="light-content">
         {/* Hero Section */}
@@ -176,11 +146,8 @@ const Home: React.FC = () => {
         {/* Navbar second level */}
         <div className="navbar">
           <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>Khuyến mãi</IonButton>
-          <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>Điểm đến</IonButton>
-          <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>Khách sạn</IonButton>
-          <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>Ẩm thực</IonButton>
+          <IonButton fill="clear" onClick={() => setShowLoginModal(true)}>tour du lịch</IonButton>
         </div>
-
 
         {/* Section: Địa điểm hot */}
           <section className="hot-places">

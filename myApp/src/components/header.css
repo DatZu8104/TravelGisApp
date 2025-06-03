@@ -1,0 +1,16 @@
+.nav-link {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #002b5b; /* xanh đậm giống 'GIỚI THIỆU' */
+  text-decoration: none;
+  margin: 0 16px;
+  display: inline-block;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #ff6600; /* màu cam khi hover, tùy chỉnh */
+}

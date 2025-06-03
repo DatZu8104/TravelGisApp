@@ -1,5 +1,6 @@
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { getToken } from '../../utils/auth';
+import { getToken, isTokenExpired, removeToken } from '../../utils/auth';
 
 interface PrivateRouteProps {
   component: React.ComponentType<any>;
@@ -9,12 +10,22 @@ interface PrivateRouteProps {
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, ...rest }) => {
   const token = getToken();
+  const isExpired = token ? isTokenExpired(token) : true;
+
+  // Nếu token hết hạn, xoá luôn cho sạch
+  if (token && isExpired) {
+    removeToken();
+  }
 
   return (
     <Route
       {...rest}
       render={(props) =>
-        token ? <Component {...props} /> : <Redirect to="/login" />
+        token && !isExpired ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )
       }
     />
   );

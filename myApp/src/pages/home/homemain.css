@@ -61,12 +61,6 @@ body, html {
   font-family: 'Georgia', serif;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* khoảng cách giữa logo và chữ */
-}
-
 .menu-toggle {
   display: none;
   cursor: pointer;
@@ -677,4 +671,16 @@ section.hero {
   .promo-grid {
     grid-template-columns: 1fr; 
   }
+}
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  --background: #15487b;
+  --color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }

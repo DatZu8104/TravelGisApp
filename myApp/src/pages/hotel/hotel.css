@@ -1,0 +1,435 @@
+/* Phần ảnh nền lớn */
+.hero-image {
+  background-image: url("src/img/Backgroud_hotel.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hộp tìm kiếm nổi trên hình */
+.search-bar {
+  position: absolute;
+  bottom: -30px;
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 1100px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Các ô input và select */
+.search-bar ion-input,
+.search-bar ion-select {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --border-radius: 10px;
+  border: 1px solid #ccc;
+  height: 45px;
+  font-size: 15px;
+  flex: 1 1 160px;
+  background: white;
+  --background: white;
+}
+
+/* Nút tìm kiếm */
+.btn-search {
+  --background: #f7b500;
+  --color: white;
+  --border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  height: 45px;
+  padding: 0 24px;
+  white-space: nowrap;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin-top: 80px; /* tăng khoảng cách với thanh tìm kiếm */
+  margin-bottom: 20px;
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Genos", sans-serif;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Phần chữ đậm “Khách sạn Vũng Tàu” */
+.breadcrumb b {
+  color: #15487b;
+  font-size: 18px;
+}
+
+/* Link “Xem bản đồ” */
+.breadcrumb a {
+  display: inline-block;
+  margin-top: 8px;
+  color: #0066cc;
+  font-size: 16px;
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #003f99;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Ô tìm tên khách sạn */
+
+.search-hotel-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.hotel-input {
+  flex: 1;
+  --padding-start: 12px;
+  --border-radius: 8px;
+  --background: #fff;
+  border: 1px solid #ccc;
+  height: 40px;
+  font-size: 14px;
+}
+
+.hotel-search-btn {
+  height: 40px;
+  min-width: 40px;
+  --border-radius: 8px;
+  --background: #15487b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+}
+
+
+
+.hotel-input {
+  flex: 1;
+  --padding-start: 12px;
+  --border-radius: 8px;
+  --background: #fff;
+  border: 1px solid #ccc;
+  height: 40px;
+  font-size: 14px;
+}
+
+.hotel-search-btn {
+  height: 40px;
+  min-width: 40px;
+  --border-radius: 8px;
+  --background: #15487b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+}
+/* Tiêu đề bộ lọc */
+.sidebar h4,
+.filter-group h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #15487b;
+  font-family: "Genos", sans-serif;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+
+.star-filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.star-filter input {
+  cursor: pointer;
+}
+
+.star {
+  color: #ffb400;
+  font-size: 18px;
+}
+
+/* “Xem thêm” */
+.see-more {
+  text-align: right;
+  font-size: 13px;
+  color: #0066cc;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.see-more:hover {
+  text-decoration: underline;
+}
+
+/* === HOTEL ITEM === */
+.hotel-item {
+  background-color: #fff;
+  border: 3px solid #ffd740;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.hotel-img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.hotel-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #15487b;
+  font-weight: bold;
+}
+
+.hotel-score {
+  font-size: 14px;
+  color: #444;
+}
+
+.hotel-address {
+  font-size: 14px;
+  color: #666;
+}
+
+.hotel-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.hotel-tags span {
+  background-color: #f1f1f1;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #333;
+}
+
+/* Giá và nút */
+.hotel-price {
+  text-align: right;
+  font-weight: bold;
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+.btn-book {
+  margin-top: 10px;
+  background-color: #15487b;
+  color: white;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* === Load More Button === */
+.load-more-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.load-more-btn {
+  border: 2px solid #134958;
+  color: #134958;
+  padding: 14px 40px;
+  font-size: 18px;
+  background: white;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #134958;
+  color: white;
+}
+/* --- KHU VỰC / LOẠI HÌNH / TIỆN ÍCH --- */
+.filter-group {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #ddd;
+}
+
+.filter-group:first-child {
+  margin-top: 0;
+  border-top: none;
+}
+
+
+
+/* Checkbox label */
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+.checkbox-label input[type="checkbox"],
+.star-filter input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked::after,
+.star-filter input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 3px;
+  font-size: 14px;
+  color: #15487b;
+  font-weight: bold;
+}
+
+/* “Xem thêm” link */
+.see-more {
+  text-align: right;
+  font-size: 13px;
+  color: #0066cc;
+  cursor: pointer;
+  margin-top: 6px;
+  user-select: none;
+  font-weight: 500;
+}
+
+.see-more:hover {
+  text-decoration: underline;
+}
+
+/* Cẩm nang du lịch */
+.guide-card {
+  margin-top: 30px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fefefe;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.guide-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #15487b;
+  margin-bottom: 10px;
+}
+
+.guide-link {
+  display: block;
+  color: #0066cc;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.guide-link:hover {
+  text-decoration: underline;
+}
+
+.contact-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-content {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-home {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 4px;
+}
+
+.support-img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.phone-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.phone-number {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f7a800;
+  font-family: "Genos", sans-serif;
+}
