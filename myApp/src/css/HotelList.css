@@ -91,3 +91,68 @@
     width: 100%;
     border-radius: 10px;
 }
+@media (max-width: 768px) {
+  /* layout column */
+  .hotel-content {
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+  }
+
+  /* hotel card: ảnh trên, text dưới */
+  .hotel-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 12px;
+  }
+
+  .hotel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 0 12px 0;
+  }
+
+  .hotel-info {
+    width: 100%;
+  }
+
+  .hotel-info h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .hotel-info p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .hotel-price {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+    text-align: right;
+  }
+
+  .pagination {
+    justify-content: center;
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .next-btn {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  /* map full width */
+  .hotel-map {
+    width: 100% !important;
+    flex-shrink: 0;
+    order: 2; /* để map nằm sau list */
+  }
+}

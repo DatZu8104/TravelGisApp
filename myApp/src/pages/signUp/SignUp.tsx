@@ -10,7 +10,7 @@ import {
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
 import { handleRegister } from "../../feature/auth/SignUpFeature";
-import "./Signup.css"; // dùng CSS riêng mới
+import "./Signup.css";
 
 const SignUp: React.FC = () => {
   const history = useHistory();
@@ -121,7 +121,6 @@ const SignUp: React.FC = () => {
             </form>
           </div>
         </div>
-
         <IonToast
           isOpen={!!error}
           message={error || ""}

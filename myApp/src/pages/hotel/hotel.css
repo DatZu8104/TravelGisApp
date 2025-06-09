@@ -433,3 +433,155 @@
   color: #f7a800;
   font-family: "Genos", sans-serif;
 }
+/* === RESPONSIVE MOBILE === */
+@media (max-width: 768px) {
+  /* search bar */
+  .search-bar {
+    flex-direction: column;
+    gap: 12px;
+    bottom: -20px;
+    padding: 12px;
+  }
+
+  .search-bar ion-input,
+  .search-bar ion-select,
+  .btn-search {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  /* breadcrumb */
+  .breadcrumb {
+    margin-top: 100px;
+    font-size: 16px;
+  }
+
+  .breadcrumb b {
+    font-size: 16px;
+  }
+
+  /* sidebar */
+  .sidebar,
+  .contact-card,
+  .search-hotel-name,
+  .filter-group,
+  .guide-card {
+    margin-top: 16px;
+  }
+
+  /* IonRow sidebar + content → xuống dòng */
+  ion-grid.content ion-row {
+    flex-direction: column;
+  }
+
+  /* Sidebar chiếm 100% */
+  ion-col[size="3"],
+  ion-col[size="9"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+
+  /* hotel item → cột dọc */
+  .hotel-item ion-row {
+    flex-direction: column;
+  }
+
+  .hotel-item ion-col[size="4"],
+  .hotel-item ion-col[size="5"],
+  .hotel-item ion-col[size="3"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    text-align: center;
+  }
+
+  .hotel-price {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .btn-book {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .hotel-item {
+  padding: 12px;
+}
+
+.hotel-item ion-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.star {
+  font-size: 18px;
+  margin: 4px 0;
+}
+
+.hotel-score {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin: 4px 0;
+}
+
+.hotel-address {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.hotel-tags span {
+  font-size: 13px;
+  padding: 4px 8px;
+}
+
+.hotel-price {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 12px 0 8px;
+}
+
+.btn-book {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 0;
+  border-radius: 8px;
+}
+/* search bar */
+  .search-bar ion-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .search-bar ion-col {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+
+  .search-bar ion-input,
+  .search-bar ion-select,
+  .btn-search {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --border-radius: 8px;
+    border: 1px solid #ccc;
+    height: 48px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn-search {
+    --background: #f7b500;
+    --color: white;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 0;
+  }
+}

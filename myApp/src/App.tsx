@@ -17,6 +17,7 @@ import Intro from "../src/pages/intro/intro";
 import IntroMain from "../src/pages/intro/intromain";
 import ContactForm from "./pages/contact/contactForm";
 import ContactFormMain from "./pages/contact/contactFormMain";
+
 // Ionic CSS
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";

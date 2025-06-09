@@ -12,7 +12,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, ...re
   const token = getToken();
   const isExpired = token ? isTokenExpired(token) : true;
 
-  // Nếu token hết hạn, xoá luôn cho sạch
+  // xóa token nếu hết hạn
   if (token && isExpired) {
     removeToken();
   }

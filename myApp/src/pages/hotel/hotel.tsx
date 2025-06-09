@@ -54,7 +54,7 @@ function Hotel() {
         <div className="hero-image">
           <IonGrid className="search-bar">
             <IonRow>
-              <IonCol><IonInput placeholder="Vũng Tàu"></IonInput></IonCol>
+              
               <IonCol><IonInput type="date" /></IonCol>
               <IonCol><IonInput type="date" /></IonCol>
               <IonCol>
@@ -72,7 +72,7 @@ function Hotel() {
 
         <div className="breadcrumb">
           Trang chủ / <b>Khách sạn Vũng Tàu</b> <br />
-          <a href="#">Xem bản đồ</a>
+          <Link to="/hotellist">Địa điểm</Link>
         </div>
 
         <IonGrid className="content">

@@ -14,3 +14,107 @@
 .nav-link:hover {
   color: #ff6600; /* màu cam khi hover, tùy chỉnh */
 }
+.auth-signin,
+.auth-signup {
+  display: inline-block; /* <== thêm dòng này */
+  text-align: center;    /* <== thêm dòng này */
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+.mobile-nav a {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 700; /* in đậm */
+  text-transform: uppercase;
+  color: #002b5b;
+  text-decoration: none;
+  margin: 8px 0;
+  padding: 8px 0;
+  transition: color 0.2s;
+  display: block;
+  text-align: center;
+}
+
+.mobile-nav a:hover {
+  color: #ff6600;
+}
+@media (max-width: 768px) {
+  .auth-buttons {
+    gap: 8px;
+  }
+
+  .auth-signin,
+  .auth-signup {
+    display: inline-block; 
+    text-align: center;    
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    border-radius: 16px;
+    white-space: nowrap;
+  }
+}
+
+/* Ẩn mobile nav mặc định */
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 60px; /* chỉnh tùy chiều cao header-bar */
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+/* Khi mở menu */
+.mobile-nav.show {
+  display: flex;
+}
+
+/* Style cho link bên trong mobile-nav */
+.mobile-nav a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #002b5b;
+  text-decoration: none;
+  margin: 8px 0;
+  transition: color 0.2s;
+}
+
+.mobile-nav a:hover {
+  color: #ff6600;
+}
+
+/* Ẩn header-nav & auth-buttons khi ở mobile */
+@media (max-width: 768px) {
+  .header-nav,
+  .auth-buttons {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #002b5b;
+  }
+}
+
+/* Hiển thị full header khi desktop */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .header-nav,
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+  }
+}

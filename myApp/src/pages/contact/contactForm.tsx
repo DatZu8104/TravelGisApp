@@ -3,12 +3,9 @@ import "./contactForm.css";
 import {
   IonPage,
   IonContent,
-  IonButton,
 } from '@ionic/react';
 import Header from "../../components/header";
 const ContactForm = () => {
-  const [isPaused, setIsPaused] = useState(false);
-
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -51,58 +48,56 @@ const ContactForm = () => {
   return (
     <IonPage>
       <IonContent>
-        <Header />
-              
-              <div className="contact-container">
-                <h2>Liên hệ với chúng tôi</h2>
-                <p>Hãy để lại thông tin của bạn để chúng tôi có thể hỗ trợ bạn tốt nhất trong chuyến đi sắp tới!</p>
-                <form onSubmit={handleSubmit} className="contact-form">
-                  <label>
-                    Họ và tên:
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required
-                    />
-                  </label>
+        <Header /> 
+          <div className="contact-container">
+            <h2>Liên hệ với chúng tôi</h2>
+            <p>Hãy để lại thông tin của bạn để chúng tôi có thể hỗ trợ bạn tốt nhất trong chuyến đi sắp tới!</p>
+            <form onSubmit={handleSubmit} className="contact-form">
+              <label>
+                Họ và tên:
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
 
-                  <label>
-                    Email:
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </label>
+              <label>
+                Email:
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
 
-                  <label>
-                    Số điện thoại:
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                    />
-                  </label>
+              <label>
+                Số điện thoại:
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
 
-                  <label>
-                    Lời nhắn:
-                    <textarea
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                    ></textarea>
-                  </label>
-
-                  <button type="submit">Gửi</button>
-                </form>
-                </div>
+              <label>
+                Lời nhắn:
+                <textarea
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                ></textarea>
+              </label>
+              <button type="submit">Gửi</button>
+            </form>
+          </div>
       </IonContent>
     </IonPage>
   );

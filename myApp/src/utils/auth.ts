@@ -14,7 +14,7 @@ export const removeToken = () => {
 
 export const logout = () => {
   localStorage.removeItem('token');
-  // Nếu bạn dùng refresh token thì xoá cả nó
+
 };
 
 
