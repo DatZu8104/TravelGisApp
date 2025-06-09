@@ -17,11 +17,11 @@ import './intro.css';
 import HeaderMain from '../../components/headerMain';
 const members = [
   { name: 'VŨ HOÀNG ĐẠT (LEADER)', id: '22166008', img: '/assets/intro-dat.png' },
-  { name: 'PHAN NGUYỄN NHƯ QUỲNH', id: '22166074', img: '/img/mem2.jpg' },
+  { name: 'PHAN NGUYỄN NHƯ QUỲNH', id: '22166074', img: '/assets/intro-q.jpg' },
   { name: 'NGUYỄN THỊ BẢO NGỌC', id: '22166060', img: '/assets/intro-ngoc.png' },
-  { name: 'VÕ THỊ NHƯ Ý', id: '22166106', img: '/img/mem4.jpg' },
+  { name: 'VÕ THỊ NHƯ Ý', id: '22166106', img: '/assets/intro-y.jpg' },
   { name: 'NGUYỄN ÁI TRÂN', id: '22166087', img: '/assets/intro-tran.png' },
-  { name: 'PHAN THỊ QUỲNH TRANG', id: '22166088', img: '/img/mem6.jpg' },
+  { name: 'PHAN THỊ QUỲNH TRANG', id: '22166088', img: '/assets/intro-c.jpg' },
 ];
 
 
