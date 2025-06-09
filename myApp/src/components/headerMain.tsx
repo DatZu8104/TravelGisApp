@@ -28,7 +28,7 @@ const HeaderMain: React.FC = () => {
         <Link to="/homemain">trang chủ</Link>
         <Link to="/intromain">giới thiệu</Link>
         <Link to="/hotel">khách sạn</Link>
-        <Link to="#">địa điểm</Link>
+        <Link to="/hotellist">địa điểm</Link>
         <Link to="/contactmain">liên hệ</Link>
       </nav>
 

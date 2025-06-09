@@ -58,7 +58,7 @@ const App: React.FC = () => (
             "/contactmain",
           ];
 
-          const isPrivate = protectedPaths.includes(path); // chỉ so sánh tuyệt đối
+          const isPrivate = protectedPaths.includes(path);
 
           return isPrivate ? (
             <PrivateRoute key={path} exact path={path} component={Component} />
