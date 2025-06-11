@@ -11,12 +11,11 @@ import L from "leaflet";
 import markerRed from '../../assets/marker-icon-red.png'; 
 import markerShadow from "../../assets/marker-shadow.png";
 import HotelPopup from "./HotelPopup";
-
+import { Geolocation } from '@capacitor/geolocation';
 
 import { useLocation } from "react-router-dom";
 import HeaderMain from "../../components/headerMain";
 
-// 👇 Cấu hình lại icon Leaflet mặc định (giữ nguyên để tránh warning)
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 
@@ -26,9 +25,16 @@ L.Icon.Default.mergeOptions({
     shadowUrl: markerShadow,
 });
 
-// 👉 Tạo L.Icon marker 1 lần
 const redIcon = new L.Icon({
     iconUrl: markerRed,
+    shadowUrl: markerShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+});
+const blueIcon = new L.Icon({
+    iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png", // icon mặc định màu xanh
     shadowUrl: markerShadow,
     iconSize: [25, 41],
     iconAnchor: [12, 41],
@@ -46,7 +52,6 @@ const MapWithInvalidateSize = () => {
     return null;
 };
 
-// 👉 Mảng hotels: dùng redIcon
 const hotels = [
     {
         name: "Annata Beach Hotel",
@@ -80,7 +85,7 @@ const hotels = [
         price: "3.200.000 VND",
         markerIcon: redIcon,
         images: ["/assets/hotellist/Diamond Sea Hotel.jpg",
-            "/assets/hotellist/La Casttle.jpg"
+            "/assets/hotellist/Olivia Hotel & Cafe Vũng Tàu.png"
         ],
         lat: 10.345,
         lng: 107.081,
@@ -93,7 +98,7 @@ const hotels = [
         price: "1.999.000 VND",
         markerIcon: redIcon,
         images: ["/assets/hotellist/Fati Boutique Hotel & Apartment.jpg",
-            "/assets/hotellist/Melissa Hotel.jpg"
+            "/assets/hotellist/Mercury Hotel & Apartment.jpg"
         ],
         lat: 10.343,
         lng: 107.086,
@@ -105,7 +110,6 @@ const hotels = [
         rating: "9.0/10",
         price: "2.800.000 VND",
         markerIcon: redIcon,
-     
         images: ["/assets/hotellist/Hoang Phat Hotel.jpg",
             "/assets/hotellist/Mercure Vung Tau.jpg"
         ],
@@ -119,6 +123,9 @@ const hotels = [
 const HotelList = () => {
     const location = useLocation();
     const [showMap, setShowMap] = useState(false);
+    const [currentPosition, setCurrentPosition] = useState<[number, number] | null>(null);
+    const [selectedHotelPosition, setSelectedHotelPosition] = useState<[number, number] | null>(null);
+    const [selectedZoom, setSelectedZoom] = useState<number>(13); // default zoom
 
     useEffect(() => {
         setShowMap(false);
@@ -127,6 +134,27 @@ const HotelList = () => {
         }, 300);
         return () => clearTimeout(timeout);
     }, [location.pathname]);
+
+    async function handleLocateUser() {
+        try {
+            const pos = await Geolocation.getCurrentPosition({
+                enableHighAccuracy: true
+            });
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+            console.log("User location:", lat, lng);
+
+            // Clear selected hotel (rất quan trọng!)
+            setSelectedHotelPosition(null);
+
+            // Set zoom và vị trí
+            setSelectedZoom(15);
+            setCurrentPosition([lat, lng]);
+        } catch (err) {
+            console.error("Error getting location:", err);
+        }
+    }
+
 
     return (
         <IonPage>
@@ -144,8 +172,15 @@ const HotelList = () => {
                                     <p>{hotel.rating}</p>
                                 </div>
                                 <div className="hotel-price">{hotel.price}</div>
-                            </div>
 
+                                {/* Nút xem vị trí khách sạn */}
+                                <button onClick={() => {
+                                    setSelectedHotelPosition([hotel.lat, hotel.lng]);
+                                    setSelectedZoom(17);
+                                }}>
+                                    Xem vị trí
+                                </button>
+                            </div>
                         ))}
 
                         <div className="pagination">
@@ -159,11 +194,14 @@ const HotelList = () => {
                     </div>
 
                     <div className="hotel-map">
+                        {/* Nút lấy vị trí hiện tại */}
+                        <button onClick={handleLocateUser}>Vị trí hiện tại</button>
+
                         {showMap && (
                             <MapContainer
-                                key={location.pathname}
-                                center={[10.3475, 107.0843]}
-                                zoom={13}
+                                key={location.pathname + JSON.stringify(currentPosition) + JSON.stringify(selectedHotelPosition)}
+                                center={selectedHotelPosition ?? currentPosition ?? [10.3475, 107.0843]}
+                                zoom={selectedZoom}
                                 style={{ height: "400px", width: "100%" }}
                             >
                                 <TileLayer
@@ -175,13 +213,18 @@ const HotelList = () => {
                                     <Marker
                                         key={index}
                                         position={[hotel.lat, hotel.lng]}
-                                        icon={hotel.markerIcon} 
+                                        icon={hotel.markerIcon}
                                     >
                                         <Popup>
                                             <HotelPopup hotel={hotel} />
                                         </Popup>
                                     </Marker>
                                 ))}
+                                {currentPosition && (
+                                    <Marker position={currentPosition} icon={blueIcon}>
+                                        <Popup>Bạn đang ở đây</Popup>
+                                    </Marker>
+                                )}
                             </MapContainer>
                         )}
                     </div>
