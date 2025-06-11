@@ -1,3 +1,5 @@
+export const BASE_URL = "https://travelgisapp-production.up.railway.app";
+
 import {
   IonPage,
   IonHeader,
@@ -26,7 +28,7 @@ const Login: React.FC = () => {
     }
 
     try {
-      const res = await fetch("https://travelgisappbe-production.up.railway.app/api/auth/login", {
+      const res = await fetch("https://travelgisapp-production.up.railway.app/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -35,7 +37,7 @@ const Login: React.FC = () => {
       const data = await res.json();
       console.log(res.status);
       console.log(data);  
-      
+
       if (!res.ok) {
         setError(data.message || "Đăng nhập thất bại");
         return;

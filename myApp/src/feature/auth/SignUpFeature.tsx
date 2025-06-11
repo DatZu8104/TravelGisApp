@@ -1,4 +1,4 @@
-export const BASE_URL = "https://travelgisappbe-production.up.railway.app";
+export const BASE_URL = "https://travelgisapp-production.up.railway.app";
 
 export const handleRegister = async ({ username, password, history }: any) => {
   try {
