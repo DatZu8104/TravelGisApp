@@ -26,14 +26,16 @@ const Login: React.FC = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("https://travelgisappbe-production.up.railway.app/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
 
       const data = await res.json();
-
+      console.log(res.status);
+      console.log(data);  
+      
       if (!res.ok) {
         setError(data.message || "Đăng nhập thất bại");
         return;
