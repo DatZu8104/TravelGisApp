@@ -28,25 +28,27 @@ const Login: React.FC = () => {
     }
 
     try {
-      const res = await fetch("https://travelgisapp-production.up.railway.app/api/auth/login", {
+      const res = await fetch(`${BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
 
       const data = await res.json();
-      console.log(res.status);
-      console.log(data);  
+      console.log("Status:", res.status);
+      console.log("Data:", data);
 
       if (!res.ok) {
         setError(data.message || "Đăng nhập thất bại");
         return;
       }
 
+      // Lưu token nếu có
       saveToken(data.token);
+      alert("Đăng nhập thành công");
       history.push("/homemain");
     } catch (err) {
-      console.error(err);
+      console.error("Login error:", err);
       setError("Lỗi kết nối máy chủ");
     }
   };
@@ -61,11 +63,11 @@ const Login: React.FC = () => {
             <h2>LOGIN</h2>
 
             <IonItem>
-              <IonLabel position="stacked">Email/SĐT</IonLabel>
+              <IonLabel position="stacked">Tên người dùng</IonLabel>
               <IonInput
                 value={username}
                 onIonChange={(e) => setUsername(e.detail.value!)}
-                placeholder="Ex: 03923434567 or NguyenVanA@gmail.com"
+                placeholder="Nhập tên người dùng"
               />
             </IonItem>
 
@@ -105,7 +107,7 @@ const Login: React.FC = () => {
                 </span>
               </p>
               <p>
-                Chưa có tài khoản?{' '}
+                Chưa có tài khoản?{" "}
                 <span
                   className="signup-link"
                   onClick={() => history.push("/signup")}
