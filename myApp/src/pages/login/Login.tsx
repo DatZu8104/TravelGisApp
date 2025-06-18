@@ -88,12 +88,12 @@ const Login: React.FC = () => {
             <div className="divider">HOẶC</div>
 
             <IonButton expand="block" className="google-btn">
-              <img className="img" src="src/img/ic_google.png" alt="Google" />
+             
               Google
             </IonButton>
 
             <IonButton expand="block" className="facebook-btn">
-              <img className="img" src="src/img/ic_face.png" alt="Facebook" />
+              
               Facebook
             </IonButton>
 

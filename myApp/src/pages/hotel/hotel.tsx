@@ -43,9 +43,6 @@ const StarRating = ({ count = 5 }) => {
 };
 
 function Hotel() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-
   return (
     <IonPage>
       <HeaderMain />

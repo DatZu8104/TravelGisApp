@@ -1,6 +1,6 @@
 /* Phần ảnh nền lớn */
 .hero-image {
-  background-image: url("src/img/Backgroud_hotel.jpg");
+  background-image: url("/src/img/Backgroud_hotel.jpg");
   background-position: center;
   background-size: cover;
   height: 420px;
