@@ -57,25 +57,75 @@ const MapWithInvalidateSize = () => {
 const hotels = [
     {
         name: "Annata Beach Hotel",
-        rating: "9.2/10",
-        price: "2.999.000 VND",
+        rating: "9.4/10",
+        price: "2.100.980 VND",
         images: ["/assets/hotellist/Annata Beach Hotel.jpg"],
-        lat: 10.326893,
-        lng: 107.081039,
+        lat: 10.349167547173359,
+        lng: 107.09790124959936,
         phone: "0963823642",
         owner: "376 Trần Phú, Phường 5, Bà Rịa - Vũng Tàu",
     },
     {
         name: "BELLA VT HOTEL",
-        rating: "8.8/10",
-        price: "2.499.000 VND",
+        rating: "9.2/10",
+        price: "1.850.000 VND",
         images: ["/assets/hotellist/BELLA VT HOTEL.jpg"],
-        lat: 10.343569,
-        lng: 107.095251,
+        lat: 10.337872030080746,
+        lng: 107.09000358213777,
         phone: "0963854642",
         owner: "03 06 Hạ Long, Street, Bà Rịa - Vũng Tàu",
     },
-    // Thêm các khách sạn khác tương tự...
+    {
+        name: "Diamond Sea Hotel",
+        rating: "9.7/10",
+        price: "1.600.000 VND",
+        images: ["/assets/hotellist/Diamond Sea Hotel.jpg"],
+        lat: 10.338185809741162,
+        lng: 107.08997302076337,
+        phone: "0963854642",
+        owner: "115 Thùy Vân, Phường 2, Bà Rịa - Vũng Tàu",
+    },
+    {
+        name: "Fati Boutique Hotel & Apartment",
+        rating: "9.5/10",
+        price: "1.500.000 VND",
+        images: ["/assets/hotellist/Fati Boutique Hotel & Apartment.jpg"],
+        lat: 10.367989770315488,
+        lng: 107.06323596494332,
+        phone: "0963854642",
+        owner: "112/3 Trần Phú, Phường 5, Bà Rịa - Vũng Tàu",
+    },
+    {
+        name: "Hoang Phat Hotel", 
+        rating: "8.8/10",
+        price: "2.200.000 VND",
+        images: ["/assets/hotellist/Hoang Phat Hotel.jpg"],
+        lat: 10.337863009904137,
+        lng: 107.09082949563003,
+        phone: "0963854642",
+        owner: "23D Thùy Vân, Phường 2, Bà Rịa - Vũng Tàu",
+    },
+    {
+        name: "La Casa Hotel", 
+        rating: "9.5/10",
+        price: "2.500.000 VND",
+        images: ["/assets/hotellist/La Casa Hotel.jpg"],
+        lat: 10.338030565894176,
+        lng: 107.08299109377874,
+        phone: "0963854642",
+        owner: "22 Đ. Phan Huy Ích, Vũng Tàu, Bà Rịa - Vũng Tàu ",
+    },
+    {
+        name: "Melissa Hotel",
+        rating: "9/10",
+        price: "2.100.000 VND",
+        images: ["/assets/hotellist/Melissa Hotel.png"],
+        lat: 10.330398623527175,
+        lng: 107.08813146679408,
+        phone: "0963854642",
+        owner: "23D Thùy Vân, Bà Rịa - Vũng Tàu ",
+    },
+    
 ];
 
 const HotelList = () => {
@@ -149,7 +199,10 @@ const HotelList = () => {
                                     setSelectedHotelPosition([hotel.lat, hotel.lng]);
                                     setSelectedZoom(17);
                                     setSelectedMarkerIndex(index);
-                                    scrollToMap();
+                                    scrollToMap();    
+                                    setTimeout(() => {
+                                        markerRefs.current[index]?.openPopup();
+                                        }, 400);                              
                                 }}>
                                     Xem vị trí
                                 </button>
@@ -177,7 +230,7 @@ const HotelList = () => {
                                     <Marker
                                         key={index}
                                         position={[hotel.lat, hotel.lng]}
-                                        icon={selectedMarkerIndex === index ? blueIcon : redIcon}
+                                        icon={redIcon}
                                         ref={(ref) => {
                                             if (ref) markerRefs.current[index] = ref as L.Marker;
                                         }}
