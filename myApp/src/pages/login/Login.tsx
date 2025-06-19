@@ -7,6 +7,7 @@ import {
   IonItem,
   IonLabel,
   IonToast,
+  IonLoading, // 👈 Thêm IonLoading
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
 import { useRef, useState } from "react";
@@ -20,9 +21,13 @@ const Login: React.FC = () => {
 
   const usernameRef = useRef<HTMLIonInputElement>(null);
   const passwordRef = useRef<HTMLIonInputElement>(null);
+
   const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleLogin = async () => {
+    if (isSubmitting) return;
+
     const username = usernameRef.current?.value?.toString().trim() || "";
     const password = passwordRef.current?.value?.toString().trim() || "";
 
@@ -30,6 +35,8 @@ const Login: React.FC = () => {
       setError("Vui lòng nhập đầy đủ thông tin.");
       return;
     }
+
+    setIsSubmitting(true);
 
     try {
       const res = await fetch(`${BASE_URL}/api/auth/login`, {
@@ -39,8 +46,6 @@ const Login: React.FC = () => {
       });
 
       const data = await res.json();
-      console.log("Status:", res.status);
-      console.log("Data:", data);
 
       if (!res.ok) {
         setError(data.message || "Đăng nhập thất bại");
@@ -53,6 +58,8 @@ const Login: React.FC = () => {
     } catch (err) {
       console.error("Login error:", err);
       setError("Lỗi kết nối máy chủ");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -65,7 +72,6 @@ const Login: React.FC = () => {
           <div className="login-box">
             <h2>LOGIN</h2>
 
-            {/* ✅ Form để hỗ trợ Enter */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -93,8 +99,9 @@ const Login: React.FC = () => {
                 expand="block"
                 type="submit"
                 className="sign-in-btn"
+                disabled={isSubmitting}
               >
-                Đăng nhập
+                {isSubmitting ? "Đang đăng nhập..." : "Đăng nhập"}
               </IonButton>
             </form>
 
@@ -143,6 +150,13 @@ const Login: React.FC = () => {
           message={error || ""}
           duration={2000}
           onDidDismiss={() => setError(null)}
+        />
+
+        {/* ✅ Loading spinner khi đang xử lý login */}
+        <IonLoading
+          isOpen={isSubmitting}
+          message="Đang đăng nhập..."
+          spinner="crescent"
         />
       </IonContent>
     </IonPage>

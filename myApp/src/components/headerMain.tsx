@@ -20,7 +20,12 @@ const HeaderMain: React.FC = () => {
       </button>
 
       <div className="logo-container">
-        <img src="/logo.svg" alt="Logo" className="logo" style={{ width: "80px", height: "auto" }} />
+        <img src="/logo.svg" alt="Logo" className="logo" style={{
+          width: "80px",
+          height: "auto",        
+          display: "block",        
+          objectFit: "contain",    
+        }} />
       
       </div>
 
