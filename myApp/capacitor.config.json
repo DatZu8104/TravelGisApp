@@ -1,5 +1,5 @@
 {
-  "appId": "com.app",
-  "appName": "TravelGisApp",
+  "appId": "com.gis",
+  "appName": "OBSTravel",
   "webDir": "dist"
 }

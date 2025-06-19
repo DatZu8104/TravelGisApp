@@ -90,12 +90,12 @@ const SignUp: React.FC = () => {
               <div className="signup-divider">HOẶC</div>
 
               <IonButton expand="block" className="social-button google-btn">
-                <img src="src/img/ic_google.png" alt="Google" className="img" />
+               
                 Google
               </IonButton>
 
               <IonButton expand="block" className="social-button facebook-btn">
-                <img src="src/img/ic_face.png" alt="Facebook" className="img" />
+             
                 Facebook
               </IonButton>
 
