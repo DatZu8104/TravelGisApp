@@ -50,11 +50,11 @@ const HeaderMain: React.FC = () => {
       </div>
 
       <div className={`mobile-nav ${menuOpen ? 'show' : ''}`}>
-        <Link to="/homemain">trang chủ</Link>
-        <Link to="/intromain">giới thiệu</Link>
-        <Link to="/hotel">khách sạn</Link>
-        <Link to="/hotellist">địa điểm</Link>
-        <Link to="/contactmain">liên hệ</Link>
+        <Link to="/homemain" onClick={() => setMenuOpen(false)}>trang chủ</Link>
+        <Link to="/intromain" onClick={() => setMenuOpen(false)}>giới thiệu</Link>
+        <Link to="/hotel" onClick={() => setMenuOpen(false)}>khách sạn</Link>
+        <Link to="/hotellist" onClick={() => setMenuOpen(false)}>địa điểm</Link>
+        <Link to="/contactmain" onClick={() => setMenuOpen(false)}>liên hệ</Link>
       </div>
     </div>
   );

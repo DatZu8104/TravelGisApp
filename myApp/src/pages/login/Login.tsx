@@ -1,5 +1,3 @@
-export const BASE_URL = "https://travelgisapp-production.up.railway.app";
-
 import {
   IonPage,
   IonHeader,
@@ -11,17 +9,23 @@ import {
   IonToast,
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { saveToken } from "../../utils/auth";
 import "./Login.css";
 
+export const BASE_URL = "https://travelgisapp-production.up.railway.app";
+
 const Login: React.FC = () => {
   const history = useHistory();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+
+  const usernameRef = useRef<HTMLIonInputElement>(null);
+  const passwordRef = useRef<HTMLIonInputElement>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = async () => {
+    const username = usernameRef.current?.value?.toString().trim() || "";
+    const password = passwordRef.current?.value?.toString().trim() || "";
+
     if (!username || !password) {
       setError("Vui lòng nhập đầy đủ thông tin.");
       return;
@@ -43,7 +47,6 @@ const Login: React.FC = () => {
         return;
       }
 
-      // Lưu token nếu có
       saveToken(data.token);
       alert("Đăng nhập thành công");
       history.push("/homemain");
@@ -62,38 +65,46 @@ const Login: React.FC = () => {
           <div className="login-box">
             <h2>LOGIN</h2>
 
-            <IonItem>
-              <IonLabel position="stacked">Tên người dùng</IonLabel>
-              <IonInput
-                value={username}
-                onIonChange={(e) => setUsername(e.detail.value!)}
-                placeholder="Nhập tên người dùng"
-              />
-            </IonItem>
+            {/* ✅ Form để hỗ trợ Enter */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleLogin();
+              }}
+            >
+              <IonItem>
+                <IonLabel position="stacked">Tên người dùng</IonLabel>
+                <IonInput
+                  ref={usernameRef}
+                  placeholder="Nhập tên người dùng"
+                />
+              </IonItem>
 
-            <IonItem>
-              <IonLabel position="stacked">Mật khẩu</IonLabel>
-              <IonInput
-                type="password"
-                value={password}
-                onIonChange={(e) => setPassword(e.detail.value!)}
-                placeholder="Nhập mật khẩu"
-              />
-            </IonItem>
+              <IonItem>
+                <IonLabel position="stacked">Mật khẩu</IonLabel>
+                <IonInput
+                  ref={passwordRef}
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                />
+              </IonItem>
 
-            <IonButton expand="block" onClick={handleLogin} className="sign-in-btn">
-              Đăng nhập
-            </IonButton>
+              <IonButton
+                expand="block"
+                type="submit"
+                className="sign-in-btn"
+              >
+                Đăng nhập
+              </IonButton>
+            </form>
 
             <div className="divider">HOẶC</div>
 
             <IonButton expand="block" className="google-btn">
-             
               Google
             </IonButton>
 
             <IonButton expand="block" className="facebook-btn">
-              
               Facebook
             </IonButton>
 
@@ -101,7 +112,7 @@ const Login: React.FC = () => {
               <p>
                 <span
                   className="signup-link"
-                  onClick={() => history.push("/ForgotPassword")}
+                  onClick={() => history.push("/login")}
                 >
                   Quên mật khẩu?
                 </span>

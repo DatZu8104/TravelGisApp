@@ -25,9 +25,9 @@ const Header: React.FC = () => {
           
         </div>
         <div className="header-nav">
-          <Link to="/#" className="nav-link">trang chủ</Link>
-          <Link to="/intro" className="nav-link">Giới thiệu</Link>
-          <Link to="/contact" className="nav-link">liên hệ</Link>
+          <Link to="/#" onClick={() => setMenuOpen(false)}className="nav-link">trang chủ</Link>
+          <Link to="/intro" onClick={() => setMenuOpen(false)} className="nav-link">Giới thiệu</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)} className="nav-link">liên hệ</Link>
         </div>
 
         <div className="auth-buttons">
@@ -37,9 +37,9 @@ const Header: React.FC = () => {
 
         
         <div className={`mobile-nav ${menuOpen ? 'show' : ''}`}>
-          <Link to="/#">trang chủ</Link>
-          <Link to="/intro">giới thiệu</Link>
-          <Link to="/contact">liên hệ</Link>
+          <Link to="/#" onClick={() => setMenuOpen(false)}>trang chủ</Link>
+          <Link to="/intro" onClick={() => setMenuOpen(false)}>giới thiệu</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>liên hệ</Link>
         </div>
         
       </div>

@@ -19,22 +19,66 @@ import {
   IonCardContent
 } from '@ionic/react';
 import "./hotel.css";
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderMain from '../../components/headerMain';
-const templateHotel = {
-  name: "Khu nghỉ dưỡng................",
-  rating: 5,
-  score: "9.9/10",
-  review: "Tuyệt vời",
-  address: "Địa chỉ của khách sạn",
-  price: "2.100.980 VND",
-};
 
-const hotels = Array.from({ length: 10 }, (_, index) => ({
-  id: index,
-  ...templateHotel,
-}));
+
+const hotels = [
+  {
+    id: 0,
+    name: "Annata Beach Hotel",
+    image: "/assets/hotellist/Joi Hospitality - Front Beach.jpg", 
+    rating: 5,
+    score: "9.9/10",
+    review: "Tuyệt vời",
+    address: "376 Trần Phú, Phường 5, Bà Rịa - Vũng Tàu",
+    price: "2.100.980 VND",
+  },
+  {
+    id: 1,
+    name: "BELLA VT HOTEL",
+    image: "/assets/hotellist/BELLA VT HOTEL.jpg",
+    rating: 4,
+    score: "9.2/10",
+    review: "Rất tốt",
+    address: "03 06 Hạ Long, Street, Bà Rịa - Vũng Tàu",
+    price: "1.850.000 VND",
+  },
+  {
+    id: 2,
+    name: "Diamond Sea Hotel",
+    image: "/assets/hotellist/Diamond Sea Hotel.jpg", 
+    rating: 5,
+    score: "9.5/10",
+    review: "Tuyệt vời",
+    address: "115 Thùy Vân, Phường 2, Bà Rịa - Vũng Tàu",
+    price: "1.600.000 VND",
+  },
+  {
+    id: 3,
+    name: "Fati Boutique Hotel & Apartment",
+    image: "/assets/hotellist/Fati Boutique Hotel & Apartment.jpg", 
+    rating: 5,
+    score: "9.5/10",
+    review: "Tuyệt vời",
+    address: "112/3 Trần Phú, Phường 5, Bà Rịa - Vũng Tàu",
+    price: "1.500.000 VND",
+  },
+  {
+    id: 4,
+    name: "Hoang Phat Hotel",
+    image: "/assets/hotellist/Hoang Phat Hotel.jpg", 
+    rating: 5,
+    score: "9.5/10",
+    review: "Tuyệt vời",
+    address: "23D Thùy Vân, Phường 2, Bà Rịa - Vũng Tàu",
+    price: "2.200.000 VND",
+  },
+  
+];
+
+
+
 
 const StarRating = ({ count = 5 }) => {
   return (
@@ -170,7 +214,7 @@ function Hotel() {
                   <p>
                     Một bên là biển, một bên là núi, điểm xuyên cùng những ngôi chùa thanh tịnh hoặc nhà thờ kiến trúc độc đáo.
                   </p>
-                  <a href="#" className="guide-link">Xem thêm</a>
+                  <a className="guide-link">Xem thêm</a>
                 </div>
               </IonCol>
 
@@ -182,7 +226,7 @@ function Hotel() {
                   <IonGrid>
                     <IonRow>
                       <IonCol size="4">
-                        <IonImg src="/assets/hotel-content.png" className="hotel-img" />
+                        <IonImg src={hotel.image} className="hotel-img" />
                       </IonCol>
                       <IonCol size="5">
                         <IonCardHeader>
