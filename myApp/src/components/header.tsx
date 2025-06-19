@@ -21,7 +21,7 @@ const Header: React.FC = () => {
         </button>
 
         <div className="logo-container">
-          <img src="/logo.svg" alt="Logo" className="logo" />
+          <img src="/logo.svg" alt="Logo" className="logo" style={{ width: "80px", height: "auto" }} />
           
         </div>
         <div className="header-nav">
