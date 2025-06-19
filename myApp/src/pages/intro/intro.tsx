@@ -62,16 +62,16 @@ const Intro: React.FC = () => {
           </div>
           <div>
             <h4>Quick links</h4>
-            <a href="#">About</a>
-            <a href="#">Items</a>
-            <a href="#">FAQs</a>
-            <a href="#">Blog</a>
+            <a >About</a>
+            <a>Items</a>
+            <a >FAQs</a>
+            <a >Blog</a>
           </div>
           <div>
             <h4>Terms of use</h4>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Cookies Policy</a>
+            <a>Terms & Conditions</a>
+            <a>Privacy Policy</a>
+            <a>Cookies Policy</a>
           </div>
           <div>
             <h4>Contact us</h4>
